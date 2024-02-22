@@ -1,12 +1,36 @@
 #include "prototype.h"
+#include "angle.h"     // Include the header for the Angle class
+#include "velocity.h"  // Include the header for the Velocity class
 
 
-void Prototype::simulate(double angle, int increments, double timePerIncrement)
+#include <iostream>
+using namespace std;
+
+
+
+void Prototype::simulate(int increments, double timePerIncrement)
 {
 
-   this->angle.setDegrees(angle);
 
-   velocity.
+   velocity.set(angle, initialVelocity);
+   acceleration.setDDY(-9.8);
+   
+   
+   
+   
+   for (int count = 0; count < increments; count ++)
+   {
+      
+      velocity.add(acceleration, timePerIncrement);
+      
+      position.addMetersX(velocity.getDX() * timePerIncrement);
+      position.addMetersY(velocity.getDY() * timePerIncrement);
+      
+      
+   }
+   
+   cout << "Distance " << position.getMetersX() << " Altitude " << position.getMetersY() << endl;;
+   
 
 
 

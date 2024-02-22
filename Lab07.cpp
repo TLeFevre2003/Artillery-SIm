@@ -16,6 +16,8 @@
 #include "uiDraw.h"     // for RANDOM and DRAW*
 #include "ground.h"     // for GROUND
 #include "position.h"   // for POSITION
+
+#include "prototype.h"
 using namespace std;
 
 /*************************************************************************
@@ -166,5 +168,8 @@ double Position::metersFromPixels = 40.0;
 
 int main()
 {
+   double angle = 75.0;
+   Prototype p(angle);
+   p.simulate(20, 1);
 
 }

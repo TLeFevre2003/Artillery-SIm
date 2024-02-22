@@ -16,10 +16,10 @@
  * VELOCITY : ADD
  *  v = v_0 + a t
  *********************************************/
-void Velocity::add(double acceleration, double time)
-{
-   
-}
+//void Velocity::add(double acceleration, double time)
+//{
+//   
+//}
 
 /*********************************************
  * VELOCITY : GET SPEED

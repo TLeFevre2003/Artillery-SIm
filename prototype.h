@@ -1,6 +1,8 @@
 #pragma once
-#include "angle.h";
-#include "velocity.h";
+#include "angle.h"
+#include "velocity.h"
+#include "position.h"
+#include "acceleration.h"
 
 /*****************************
 *PROTOTYPE
@@ -12,8 +14,14 @@ class Prototype
 private:
    Angle angle;
    Velocity velocity;
+   Position position;
+   Acceleration acceleration;
+   double initialVelocity = 827.0;
+   
 
 public:
-   void simulate(double angle, int increments, double timePerIncrement) {};
+   Prototype(double angle) {this->angle.setDegrees(angle);}
+   
+   void simulate(int increments, double timePerIncrement);
 };
 
