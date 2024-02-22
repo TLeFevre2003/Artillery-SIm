@@ -79,6 +79,11 @@ public:
       return 0.5 * coeffiecent * airDensity * computeTotalComponent(DX,DY) * computeTotalComponent(DX, DY) * surfaceArea;
    }
 
+   double linearI(double x, double xf,double x0, double yf, double y0)
+   {
+      return y0 + ((x - x0) * (yf - y0) / (xf - x0));
+   }
+
    void computeGravity()
    {
       double altitude = postion.getMetersY();
@@ -180,7 +185,7 @@ public:
          A1 = 25000;
       }
 
-      gravity = -1.0 * (G0 + ((altitude - A0) * (G1 - G0) / (A1 - A0)));
+      gravity = linearI(altitude, A1, A0, G1, G0) * -1;
    }
    
    void simulate(double timePerIncrement, double muzzleVelocity)
