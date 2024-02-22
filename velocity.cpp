@@ -16,10 +16,12 @@
  * VELOCITY : ADD
  *  v = v_0 + a t
  *********************************************/
-//void Velocity::add(double acceleration, double time)
-//{
-//   
-//}
+void Velocity::add(Acceleration acceleration, double time)
+{
+   addDX(acceleration.getDDX() * time);
+   addDY(acceleration.getDDY() * time);
+   
+}
 
 /*********************************************
  * VELOCITY : GET SPEED
