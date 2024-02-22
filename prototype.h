@@ -202,8 +202,8 @@ public:
          DDX = -1 * horizontalDrag;
          DDY = gravity - verticalDrag;
 
-         DX = computeVelocity(DX, 0, timePerIncrement);
-         DY = computeVelocity(DY, gravity, timePerIncrement);
+         DX = computeVelocity(DX, DDX, timePerIncrement);
+         DY = computeVelocity(DY, DDY, timePerIncrement);
 
          postion.setMetersX(computeDistance(postion.getMetersX(), DX, DDX, timePerIncrement));
          postion.setMetersY(computeDistance(postion.getMetersY(), DY, DDY, timePerIncrement));
