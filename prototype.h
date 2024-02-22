@@ -187,6 +187,161 @@ public:
 
       gravity = linearI(altitude, A1, A0, G1, G0) * -1;
    }
+   void computeAirDensity()
+   {
+       double altitude = postion.getMetersY();
+       double D0;
+       double D1;
+       double B0;
+       double B1;
+
+       assert(altitude >= 0);
+
+       if (0.0 <= altitude && altitude < 1000.0)
+       {
+           D0 = 1.225;
+           D1 = 1.112;
+           B0 = 0.0;
+           B1 = 1000.0;
+       }
+       else if (1000.0 <= altitude && altitude < 2000.0)
+       {
+           D0 = 1.112;
+           D1 = 1.007;
+           B0 = 1000.0;
+           B1 = 2000.0;
+       }
+       else if (2000.0 <= altitude && altitude < 3000.0)
+       {
+           D0 = 1.007;
+           D1 = 0.9093;
+           B0 = 2000.0;
+           B1 = 3000.0;
+       }
+       else if (3000.0 <= altitude && altitude < 4000.0)
+       {
+           D0 = 0.9093;
+           D1 = 0.8194;
+           B0 = 3000.0;
+           B1 = 4000.0;
+       }
+       else if (4000.0 <= altitude && altitude < 5000.0)
+       {
+           D0 = 0.8194;
+           D1 = 0.7364;
+           B0 = 4000.0;
+           B1 = 5000.0;
+       }
+       else if (5000.0 <= altitude && altitude < 6000.0)
+       {
+           D0 = 0.7364;
+           D1 = 0.6601;
+           B0 = 5000.0;
+           B1 = 6000.0;
+       }
+       else if (6000.0 <= altitude && altitude < 7000.0)
+       {
+           D0 = 0.6601;
+           D1 = 0.5900;
+           B0 = 6000.0;
+           B1 = 7000.0;
+       }
+       else if (7000.0 <= altitude && altitude < 8000.0)
+       {
+           D0 = 0.5900;
+           D1 = 0.5258;
+           B0 = 7000.0;
+           B1 = 8000.0;
+       }
+       else if (8000.0 <= altitude && altitude < 9000.0)
+       {
+           D0 = 0.5258;
+           D1 = 0.4671;
+           B0 = 8000.0;
+           B1 = 9000.0;
+       }
+       else if (9000.0 <= altitude && altitude < 10000.0)
+       {
+           D0 = 0.4671;
+           D1 = 0.4135;
+           B0 = 9000.0;
+           B1 = 10000.0;
+       }
+       else if (10000.0 <= altitude && altitude < 15000.0)
+       {
+           D0 = 0.4135;
+           D1 = 0.1948;
+           B0 = 10000.0;
+           B1 = 15000.0;
+       }
+       else if (15000.0 <= altitude && altitude < 20000.0)
+       {
+           D0 = 0.1948;
+           D1 = 0.08891;
+           B0 = 15000.0;
+           B1 = 20000.0;
+       }
+       else if (20000.0 <= altitude && altitude < 25000.0)
+       {
+           D0 = 0.08891;
+           D1 = 0.04008;
+           B0 = 20000.0;
+           B1 = 25000.0;
+       }
+       else if (25000.0 <= altitude && altitude < 30000.0)
+       {
+           D0 = 0.04008;
+           D1 = 0.01841;
+           B0 = 25000.0;
+           B1 = 30000.0;
+       }
+       else if (30000.0 <= altitude && altitude < 40000.0)
+       {
+           D0 = 0.01841;
+           D1 = 0.003996;
+           B0 = 30000.0;
+           B1 = 40000.0;
+       }
+       else if (40000.0 <= altitude && altitude < 50000.0)
+       {
+           D0 = 0.003996;
+           D1 = 0.001027;
+           B0 = 40000.0;
+           B1 = 50000.0;
+       }
+       else if (50000.0 <= altitude && altitude < 60000.0)
+       {
+           D0 = 0.001027;
+           D1 = 0.0003097;
+           B0 = 50000.0;
+           B1 = 60000.0;
+       }
+       else if (60000.0 <= altitude && altitude < 70000.0)
+       {
+           D0 = 0.0003097;
+           D1 = 0.0000828;
+           B0 = 60000.0;
+           B1 = 70000.0;
+       }
+       else if (70000.0 <= altitude && altitude < 80000.0)
+       {
+           D0 = 0.0000828;
+           D1 = 0.0000185;
+           B0 = 70000.0;
+           B1 = 80000.0;
+       }
+       else // altitude >= 80000.0
+       {
+           D0 = 0.0000185;
+           D1 = 0.0; // Assuming density is negligible beyond 80000m
+           B0 = 80000.0;
+           B1 = 90000.0; // Assuming 90000m as an upper limit
+       }
+
+       // Linear interpolation
+       airDensity = linearI(altitude, B1, B0, D1, D0);
+   }
+
    
    void simulate(double timePerIncrement, double muzzleVelocity)
    {
@@ -198,6 +353,8 @@ public:
       gravity = -9.8;
       while (postion.getMetersY() >= 0)
       {
+         computeAirDensity();
+         
          computeGravity();
          computeAngleFromComponents();
 
