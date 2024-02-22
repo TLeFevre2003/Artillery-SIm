@@ -46,6 +46,18 @@
 		C18A0256273308A4004537C6 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		C18A0257273308A4004537C6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C1B0EA5A27E22792004C9F71 /* testGround.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testGround.h; sourceTree = "<group>"; };
+		F0DEE60B2B872E5F00540F8A /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
+		F0DEE60C2B872E5F00540F8A /* prototype.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = prototype.cpp; sourceTree = "<group>"; };
+		F0DEE60D2B872E5F00540F8A /* prototype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prototype.h; sourceTree = "<group>"; };
+		F0DEE60E2B872E5F00540F8A /* velocity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = velocity.cpp; sourceTree = "<group>"; };
+		F0DEE60F2B872E5F00540F8A /* angle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = angle.cpp; sourceTree = "<group>"; };
+		F0DEE6102B872E5F00540F8A /* velocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = velocity.h; sourceTree = "<group>"; };
+		F0DEE6112B872E5F00540F8A /* angle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = angle.h; sourceTree = "<group>"; };
+		F0DEE6122B872E5F00540F8A /* Lab07.vcxproj.filters */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lab07.vcxproj.filters; sourceTree = "<group>"; };
+		F0DEE6132B872E6000540F8A /* acceleration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = acceleration.cpp; sourceTree = "<group>"; };
+		F0DEE6142B872E6000540F8A /* packages.config */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = packages.config; sourceTree = "<group>"; };
+		F0DEE6152B872E6000540F8A /* Lab07.vcxproj */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lab07.vcxproj; sourceTree = "<group>"; };
+		F0DEE6162B872E6000540F8A /* Lab07.vcxproj.user */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lab07.vcxproj.user; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,18 @@
 		C18A023027330832004537C6 = {
 			isa = PBXGroup;
 			children = (
+				F0DEE6132B872E6000540F8A /* acceleration.cpp */,
+				F0DEE60B2B872E5F00540F8A /* acceleration.h */,
+				F0DEE60F2B872E5F00540F8A /* angle.cpp */,
+				F0DEE6112B872E5F00540F8A /* angle.h */,
+				F0DEE6152B872E6000540F8A /* Lab07.vcxproj */,
+				F0DEE6122B872E5F00540F8A /* Lab07.vcxproj.filters */,
+				F0DEE6162B872E6000540F8A /* Lab07.vcxproj.user */,
+				F0DEE6142B872E6000540F8A /* packages.config */,
+				F0DEE60C2B872E5F00540F8A /* prototype.cpp */,
+				F0DEE60D2B872E5F00540F8A /* prototype.h */,
+				F0DEE60E2B872E5F00540F8A /* velocity.cpp */,
+				F0DEE6102B872E5F00540F8A /* velocity.h */,
 				C1B0EA5A27E22792004C9F71 /* testGround.h */,
 				C18A024327330880004537C6 /* ground.cpp */,
 				C18A024527330880004537C6 /* ground.h */,
