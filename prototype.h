@@ -23,5 +23,16 @@ public:
    Prototype(double angle) {this->angle.setDegrees(angle);}
    
    void simulate(int increments, double timePerIncrement);
+   {
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   }
 };
 
