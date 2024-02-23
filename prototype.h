@@ -3,8 +3,10 @@
 #include <cmath>
 #include <iostream>
 #include <cassert>
-#include <array>
+#include <vector>
+#include <iomanip>
 
+using namespace std;
 /*****************************
 *PROTOTYPE
 * authors: Jason Chandler, Tyler Lefevre
@@ -18,6 +20,8 @@ private:
    double angle;
    double DX;
    double DY;
+   double DDX;
+   double DDY;
    double gravity;
    double dragCoefficient;
    double airDensity;
@@ -31,6 +35,8 @@ public:
       this->angle = convertDegToRad(angle);
       DX = 0;
       DY = 0;
+      DDX = 0;
+      DDY = 0;
       surfaceArea = PI * 0.25 * (0.15489) * (0.15489);
    }
 
@@ -92,34 +98,34 @@ public:
    {
       double altitude = position.getMetersY();
       
-      double data[][2] = {
-         {0, 9.807},
-         {1000, 9.804},
-         {2000, 9.801},
-         {3000, 9.797},
-         {4000, 9.794},
-         {5000, 9.791},
-         {6000, 9.788},
-         {7000, 9.785},
-         {8000, 9.782},
-         {9000, 9.779},
-         {10000, 9.776},
-         {15000, 9.761},
-         {20000, 9.745},
-         {25000, 9.73}
+      vector<vector<double>> data = {
+          {0, 9.807},
+          {1000, 9.804},
+          {2000, 9.801},
+          {3000, 9.797},
+          {4000, 9.794},
+          {5000, 9.791},
+          {6000, 9.788},
+          {7000, 9.785},
+          {8000, 9.782},
+          {9000, 9.779},
+          {10000, 9.776},
+          {15000, 9.761},
+          {20000, 9.745},
+          {25000, 9.73}
       };
       
-      int size = sizeof(data) / sizeof(data[0]);
-      
-      gravity = -1 * linearInterpolate(data, size, altitude);
+      gravity = -1 * linearInterpolate(data, altitude);
    }
    
-   double linearInterpolate(const double data[][2], double size, double middle)
+   double linearInterpolate(const vector<vector<double>>& data, double middle)
    {
       double Y0 = 0;
       double Y1 = 0;
       double X0 = 0;
       double X1 = 0;
+      
+      int size = data.size();
 
       for (int i = 0; i < size; ++i)
       {
@@ -144,7 +150,7 @@ public:
    void computeAirDensity()
    {
       double altitude = position.getMetersY();
-      double data[][2] = {
+      vector<vector<double>> data = {
          {0.0, 1.225},
          {1000.0, 1.112},
          {2000.0, 1.007},
@@ -167,15 +173,14 @@ public:
          {80000.0, 0.0000185}
       };
 
-      int size = sizeof(data) / sizeof(data[0]);
 
-      airDensity = linearInterpolate(data, size, altitude);
+      airDensity = linearInterpolate(data, altitude);
    }
 
    void calculateSpeedOfSound()
    {
       double altitude = position.getMetersY();
-      double data[][2] = {
+      vector<vector<double>> data = {
          {0.0, 340.0},
          {1000.0, 336.0},
          {2000.0, 332.0},
@@ -193,9 +198,8 @@ public:
          {30000.0, 305.0},
          {40000.0, 324.0}
       };
-      int size = sizeof(data) / sizeof(data[0]);
 
-      speedOfSound = linearInterpolate(data, size, altitude);
+      speedOfSound = linearInterpolate(data, altitude);
    }
 
    void computeDragCoefficient()
@@ -205,7 +209,7 @@ public:
       double totVel = computeTotalComponent(DX, DY);
       assert(speedOfSound >= 0);
       double machNumber = totVel / speedOfSound;
-      double data[][2] = {
+      vector<vector<double>> data = {
          {0.3, 0.1629},
          {0.5, 0.1659},
          {0.7, 0.2031},
@@ -223,9 +227,8 @@ public:
          {2.89, 0.2306},
          {5.0, 0.2656}
       };
-      int size = sizeof(data) / sizeof(data[0]);
 
-      dragCoefficient = linearInterpolate(data, size, machNumber);
+      dragCoefficient = linearInterpolate(data, machNumber);
    }
    
    void simulate(double timePerIncrement, double muzzleVelocity)
@@ -233,8 +236,10 @@ public:
       double hangTime = 0.0;
       DX = computeHorizontalComponent(this->angle, muzzleVelocity);
       DY = computeVerticalComponent(this->angle, muzzleVelocity);
-      double DDX = 0;
-      double DDY = 0;
+      
+      double prevy = 0;
+      double prevx = 0;
+      
       while (position.getMetersY() >= 0)
       {
          computeAirDensity();
@@ -251,13 +256,23 @@ public:
          DX = computeVelocity(DX, DDX, timePerIncrement);
          DY = computeVelocity(DY, DDY, timePerIncrement);
 
+         prevy = position.getMetersY();
+         prevx = position.getMetersX();
+         
          position.setMetersX(computeDistance(position.getMetersX(), DX, DDX, timePerIncrement));
          position.setMetersY(computeDistance(position.getMetersY(), DY, DDY, timePerIncrement));
 
          hangTime += timePerIncrement;
       }
       
-      std::cout << "Distance:" << position.getMetersX() << " Altitude" << position.getMetersY() << " Hang Time: " << hangTime << std::endl;
+      
+      double newHangTime = linearI(0.0, position.getMetersY(), prevy, hangTime, (hangTime-.01));
+      position.setMetersX(linearI(newHangTime, hangTime, hangTime-.01, position.getMetersX(), prevx));
+      
+      
+      std::cout << "Distance: " << std::fixed << std::setprecision(1) << position.getMetersX() << "m     "
+                << "Hang Time: " << std::fixed << std::setprecision(1) << hangTime << "s"
+                << std::endl;
    }
 };
 
