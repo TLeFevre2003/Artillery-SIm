@@ -81,7 +81,13 @@ public:
 
    double linearI(double x, double xf,double x0, double yf, double y0)
    {
+      if (xf - y0 == 0)
+      {
+         return yf;
+      }
+      
       return y0 + ((x - x0) * (yf - y0) / (xf - x0));
+      
    }
 
    void computeGravity()
@@ -343,7 +349,7 @@ public:
    }
    double calculateMachNumber()
    {
-       double altitude = postion.getMetersY();
+       double altitude = position.getMetersY();
        double speedOfSound;
        double S0;
        double S1;
@@ -464,7 +470,7 @@ public:
 
    void computeDragCoefficient()
    {
-       double machNumber = calculateMachNumber(); // Assuming you have a function to calculate Mach number
+       double machNumber = calculateMachNumber(); 
        double C0;
        double C1;
        double M0;
