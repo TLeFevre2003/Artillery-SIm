@@ -12,7 +12,7 @@
 class Prototype
 {
 private:
-   Position postion;
+   Position position;
    const double PI = 3.14159265389;
    double angle;
    double DX;
@@ -86,7 +86,7 @@ public:
 
    void computeGravity()
    {
-      double altitude = postion.getMetersY();
+      double altitude = position.getMetersY();
       double G0;
       double G1;
       double A0;
@@ -189,7 +189,7 @@ public:
    }
    void computeAirDensity()
    {
-       double altitude = postion.getMetersY();
+       double altitude = position.getMetersY();
        double D0;
        double D1;
        double B0;
@@ -351,7 +351,7 @@ public:
       double DDX = 0;
       double DDY = 0;
       gravity = -9.8;
-      while (postion.getMetersY() >= 0)
+      while (position.getMetersY() >= 0)
       {
          computeAirDensity();
          
@@ -367,13 +367,13 @@ public:
          DX = computeVelocity(DX, DDX, timePerIncrement);
          DY = computeVelocity(DY, DDY, timePerIncrement);
 
-         postion.setMetersX(computeDistance(postion.getMetersX(), DX, DDX, timePerIncrement));
-         postion.setMetersY(computeDistance(postion.getMetersY(), DY, DDY, timePerIncrement));
+         position.setMetersX(computeDistance(position.getMetersX(), DX, DDX, timePerIncrement));
+         position.setMetersY(computeDistance(position.getMetersY(), DY, DDY, timePerIncrement));
 
          hangTime += timePerIncrement;
       }
       
-      std::cout << "Distance:" << postion.getMetersX() << " Altitude" << postion.getMetersY() << " Hang Time: " << hangTime << std::endl;
+      std::cout << "Distance:" << position.getMetersX() << " Altitude" << position.getMetersY() << " Hang Time: " << hangTime << std::endl;
    }
 };
 
