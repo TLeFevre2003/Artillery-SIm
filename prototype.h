@@ -341,6 +341,257 @@ public:
        // Linear interpolation
        airDensity = linearI(altitude, B1, B0, D1, D0);
    }
+   double calculateMachNumber()
+   {
+       double altitude = postion.getMetersY();
+       double speedOfSound;
+       double S0;
+       double S1;
+       double B0;
+       double B1;
+
+       assert(altitude >= 0);
+       if (0.0 <= altitude && altitude < 1000.0)
+       {
+           S0 = 340.0;
+           S1 = 336.0;
+           B0 = 0.0;
+           B1 = 1000.0;
+       }
+       else if (1000.0 <= altitude && altitude < 2000.0)
+       {
+           S0 = 336.0;
+           S1 = 332.0;
+           B0 = 1000.0;
+           B1 = 2000.0;
+       }
+       else if (2000.0 <= altitude && altitude < 3000.0)
+       {
+           S0 = 332.0;
+           S1 = 328.0;
+           B0 = 2000.0;
+           B1 = 3000.0;
+       }
+       else if (3000.0 <= altitude && altitude < 4000.0)
+       {
+           S0 = 328.0;
+           S1 = 324.0;
+           B0 = 3000.0;
+           B1 = 4000.0;
+       }
+       else if (4000.0 <= altitude && altitude < 5000.0)
+       {
+           S0 = 324.0;
+           S1 = 320.0;
+           B0 = 4000.0;
+           B1 = 5000.0;
+       }
+       else if (5000.0 <= altitude && altitude < 6000.0)
+       {
+           S0 = 320.0;
+           S1 = 316.0;
+           B0 = 5000.0;
+           B1 = 6000.0;
+       }
+       else if (6000.0 <= altitude && altitude < 7000.0)
+       {
+           S0 = 316.0;
+           S1 = 312.0;
+           B0 = 6000.0;
+           B1 = 7000.0;
+       }
+       else if (7000.0 <= altitude && altitude < 8000.0)
+       {
+           S0 = 312.0;
+           S1 = 308.0;
+           B0 = 7000.0;
+           B1 = 8000.0;
+       }
+       else if (8000.0 <= altitude && altitude < 9000.0)
+       {
+           S0 = 308.0;
+           S1 = 303.0;
+           B0 = 8000.0;
+           B1 = 9000.0;
+       }
+       else if (9000.0 <= altitude && altitude < 10000.0)
+       {
+           S0 = 303.0;
+           S1 = 299.0;
+           B0 = 9000.0;
+           B1 = 10000.0;
+       }
+       else if (10000.0 <= altitude && altitude < 15000.0)
+       {
+           S0 = 299.0;
+           S1 = 295.0;
+           B0 = 10000.0;
+           B1 = 15000.0;
+       }
+       else if (15000.0 <= altitude && altitude < 20000.0)
+       {
+           S0 = 295.0;
+           S1 = 295.0;
+           B0 = 15000.0;
+           B1 = 20000.0;
+       }
+       else if (20000.0 <= altitude && altitude < 25000.0)
+       {
+           S0 = 295.0;
+           S1 = 295.0;
+           B0 = 20000.0;
+           B1 = 25000.0;
+       }
+       else if (25000.0 <= altitude && altitude < 30000.0)
+       {
+           S0 = 295.0;
+           S1 = 305.0;
+           B0 = 25000.0;
+           B1 = 30000.0;
+       }
+       else
+       {
+           S0 = 305.0;
+           S1 = 324.0;
+           B0 = 30000.0;
+           B1 = 40000.0;
+       }
+      speedOfSound = linearI(altitude, B1, B0, S1, S0);
+      return speedOfSound;
+
+       // Now you can use speedOfSound for your calculations.
+   }
+
+   void computeDragCoefficient()
+   {
+       double machNumber = calculateMachNumber(); // Assuming you have a function to calculate Mach number
+       double C0;
+       double C1;
+       double M0;
+       double M1;
+
+       assert(machNumber >= 0);
+
+       if (0.3 <= machNumber && machNumber < 0.5)
+       {
+           C0 = 0.1629;
+           C1 = 0.1659;
+           M0 = 0.3;
+           M1 = 0.5;
+       }
+       else if (0.5 <= machNumber && machNumber < 0.7)
+       {
+           C0 = 0.1659;
+           C1 = 0.2031;
+           M0 = 0.5;
+           M1 = 0.7;
+       }
+       else if (0.7 <= machNumber && machNumber < 0.89)
+       {
+           C0 = 0.2031;
+           C1 = 0.2597;
+           M0 = 0.7;
+           M1 = 0.89;
+       }
+       else if (0.89 <= machNumber && machNumber < 0.92)
+       {
+           C0 = 0.2597;
+           C1 = 0.3010;
+           M0 = 0.89;
+           M1 = 0.92;
+       }
+       else if (0.92 <= machNumber && machNumber < 0.96)
+       {
+           C0 = 0.3010;
+           C1 = 0.3287;
+           M0 = 0.92;
+           M1 = 0.96;
+       }
+       else if (0.96 <= machNumber && machNumber < 0.98)
+       {
+           C0 = 0.3287;
+           C1 = 0.4002;
+           M0 = 0.96;
+           M1 = 0.98;
+       }
+       else if (0.98 <= machNumber && machNumber < 1.0)
+       {
+           C0 = 0.4002;
+           C1 = 0.4258;
+           M0 = 0.98;
+           M1 = 1.0;
+       }
+       else if (1.0 <= machNumber && machNumber < 1.02)
+       {
+           C0 = 0.4258;
+           C1 = 0.4335;
+           M0 = 1.0;
+           M1 = 1.02;
+       }
+       else if (1.02 <= machNumber && machNumber < 1.06)
+       {
+           C0 = 0.4335;
+           C1 = 0.4483;
+           M0 = 1.02;
+           M1 = 1.06;
+       }
+       else if (1.06 <= machNumber && machNumber < 1.24)
+       {
+           C0 = 0.4483;
+           C1 = 0.4064;
+           M0 = 1.06;
+           M1 = 1.24;
+       }
+       else if (1.24 <= machNumber && machNumber < 1.53)
+       {
+           C0 = 0.4064;
+           C1 = 0.3663;
+           M0 = 1.24;
+           M1 = 1.53;
+       }
+       else if (1.53 <= machNumber && machNumber < 1.99)
+       {
+           C0 = 0.3663;
+           C1 = 0.2897;
+           M0 = 1.53;
+           M1 = 1.99;
+       }
+       else if (1.99 <= machNumber && machNumber < 2.87)
+       {
+           C0 = 0.2897;
+           C1 = 0.2297;
+           M0 = 1.99;
+           M1 = 2.87;
+       }
+       else if (2.87 <= machNumber && machNumber < 2.89)
+       {
+           C0 = 0.2297;
+           C1 = 0.2306;
+           M0 = 2.87;
+           M1 = 2.89;
+       }
+       else if (2.89 <= machNumber && machNumber < 5.0)
+       {
+           C0 = 0.2306;
+           C1 = 0.2656;
+           M0 = 2.89;
+           M1 = 5.0;
+       }
+       else // Mach number >= 5.0
+       {
+           // Assuming drag coefficient remains constant beyond Mach 5.0
+           C0 = 0.2656;
+           C1 = 0.2656;
+           M0 = 5.0;
+           M1 = 5.0;
+       }
+
+       // Linear interpolation
+      coeffiecent = linearI(machNumber, M1, M0, C1, C0);
+   }
+   
+   
+
 
    
    void simulate(double timePerIncrement, double muzzleVelocity)
@@ -354,7 +605,7 @@ public:
       while (postion.getMetersY() >= 0)
       {
          computeAirDensity();
-         
+         computeDragCoefficient();
          computeGravity();
          computeAngleFromComponents();
 
