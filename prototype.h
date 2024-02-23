@@ -183,7 +183,7 @@ public:
          A0 = 15000;
          A1 = 20000;
       }
-      else if (20000.0 <= altitude)
+      else
       {
          G0 = 9.745;
          G1 = 9.730;
@@ -462,7 +462,11 @@ public:
            B0 = 30000.0;
            B1 = 40000.0;
        }
+      
+      
+      
       speedOfSound = linearI(altitude, B1, B0, S1, S0);
+      
       return speedOfSound;
 
        // Now you can use speedOfSound for your calculations.
@@ -470,7 +474,9 @@ public:
 
    void computeDragCoefficient()
    {
-       double machNumber = calculateMachNumber(); 
+      
+      double totVel = computeTotalComponent(DX, DY);
+      double machNumber = totVel / calculateMachNumber();
        double C0;
        double C1;
        double M0;
