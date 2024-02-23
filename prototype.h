@@ -228,10 +228,6 @@ public:
       dragCoefficient = linearInterpolate(data, size, machNumber);
    }
    
-   
-
-
-   
    void simulate(double timePerIncrement, double muzzleVelocity)
    {
       double hangTime = 0.0;
