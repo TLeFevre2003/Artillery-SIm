@@ -1,6 +1,12 @@
 #include "prototype.h"
+using namespace std;
 
-void Prototype::simulate(double timePerIncrement, double muzzleVelocity)
+
+/***************************************************
+ * SIMULATE
+ * Runs an artillery simulation and displays the distance and hangtime of the projectile
+ **************************************************/
+void Prototype::simulate(double timePerIncrement)
 {
    double hangTime = 0.0;
    DX = computeHorizontalComponent(this->angle, muzzleVelocity);
@@ -12,6 +18,7 @@ void Prototype::simulate(double timePerIncrement, double muzzleVelocity)
    while (position.getMetersY() >= 0)
    {
       computeAirDensity();
+      calculateSpeedOfSound();
       computeDragCoefficient();
       computeGravity();
       computeAngleFromComponents();
@@ -35,22 +42,26 @@ void Prototype::simulate(double timePerIncrement, double muzzleVelocity)
    }
 
 
-   double newHangTime = linearI(0.0, position.getMetersY(), prevy, hangTime, (hangTime - .01));
-   position.setMetersX(linearI(newHangTime, hangTime, hangTime - .01, position.getMetersX(), prevx));
+   double newHangTime = LinearInterpolate(0.0, position.getMetersY(), prevy, hangTime, (hangTime - .01));
+   position.setMetersX(LinearInterpolate(newHangTime, hangTime, hangTime - .01, position.getMetersX(), prevx));
 
-
-   std::cout << "Distance: " << std::fixed << std::setprecision(1) << position.getMetersX() << "m     "
-      << "Hang Time: " << std::fixed << std::setprecision(1) << hangTime << "s"
-      << std::endl;
+   cout.setf(ios::fixed | ios::showpoint);
+   cout.precision(1);
+   
+   cout << "Distance: " << position.getMetersX() << "m     "
+      << "Hang Time: " << fixed << hangTime << "s"
+      << endl;
 }
-
+/***************************************************
+ * COMPUTE DRAG COEFFICIENT
+ * Find the drag coefficient given the speed of sound and a given speed.
+ **************************************************/
 void Prototype::computeDragCoefficient()
 {
 
-   calculateSpeedOfSound();
-   double totVel = computeTotalComponent(DX, DY);
+   double totalVelocity = computeTotalComponent(DX, DY);
    assert(speedOfSound >= 0);
-   double machNumber = totVel / speedOfSound;
+   double machNumber = totalVelocity / speedOfSound;
    vector<vector<double>> data = {
       {0.3, 0.1629},
       {0.5, 0.1659},
@@ -70,12 +81,14 @@ void Prototype::computeDragCoefficient()
       {5.0, 0.2656}
    };
 
-   dragCoefficient = linearInterpolate(data, machNumber);
+   dragCoefficient = LinearIntepolateWithData(data, machNumber);
 }
-
+/***************************************************
+ * COMPUTE SPEED OF SOUND
+ * Find the speed of sound for a given altitude
+ **************************************************/
 void Prototype::calculateSpeedOfSound()
 {
-   double altitude = position.getMetersY();
    vector<vector<double>> data = {
       {0.0, 340.0},
       {1000.0, 336.0},
@@ -95,12 +108,14 @@ void Prototype::calculateSpeedOfSound()
       {40000.0, 324.0}
    };
 
-   speedOfSound = linearInterpolate(data, altitude);
+   speedOfSound = LinearIntepolateWithData(data, position.getMetersY());
 }
-
+/***************************************************
+ * COMPUTE AIR DENSITY
+ * Find the air density for a given altitude
+ **************************************************/
 void Prototype::computeAirDensity()
 {
-   double altitude = position.getMetersY();
    vector<vector<double>> data = {
       {0.0, 1.225},
       {1000.0, 1.112},
@@ -125,10 +140,13 @@ void Prototype::computeAirDensity()
    };
 
 
-   airDensity = linearInterpolate(data, altitude);
+   airDensity = LinearIntepolateWithData(data, position.getMetersY());
 }
-
-double Prototype::linearInterpolate(const vector<vector<double>>& data, double middle)
+/***************************************************
+ * LINEAR INTERPOLATE WITH DATA
+ * Find the value of the middle point between two points
+ **************************************************/
+double Prototype::LinearIntepolateWithData(const vector<vector<double>>& data, double middle)
 {
    double Y0 = 0;
    double Y1 = 0;
@@ -148,7 +166,7 @@ double Prototype::linearInterpolate(const vector<vector<double>>& data, double m
 
          if (X0 <= middle && middle <= X1)
          {
-            double value = linearI(middle, X1, X0, Y1, Y0);
+            double value = LinearInterpolate(middle, X1, X0, Y1, Y0);
             return value;
          }
       }
@@ -156,10 +174,12 @@ double Prototype::linearInterpolate(const vector<vector<double>>& data, double m
 
    return Y1;
 }
-
+/***************************************************
+ * COMPUTE GRAVITY
+ * Find the value of gravity for a given altitude
+ **************************************************/
 void Prototype::computeGravity()
 {
-   double altitude = position.getMetersY();
 
    vector<vector<double>> data = {
        {0, 9.807},
@@ -178,10 +198,20 @@ void Prototype::computeGravity()
        {25000, 9.73}
    };
 
-   gravity = -1 * linearInterpolate(data, altitude);
+   gravity = -1 * LinearIntepolateWithData(data, position.getMetersY());
 }
+/***************************************************
+ * LINEAR INTERPOLATE
+ * Find the value of the middle point
+ * (r - r0)(d - d0)=(r1 - r0)(d1 - d0)
+ * INPUT
+ *    d0,r0 = coordinates of one point
+ *    d1,r1 = coordinates of a second point
+ * OUTPUT
+ *     d,r = coordinates of a point in the middle
+ **************************************************/
 
-double Prototype::linearI(double x, double xf, double x0, double yf, double y0)
+double Prototype::LinearInterpolate(double x, double xf, double x0, double yf, double y0)
 {
    if (xf - y0 == 0)
    {
@@ -190,47 +220,162 @@ double Prototype::linearI(double x, double xf, double x0, double yf, double y0)
 
    return y0 + ((x - x0) * (yf - y0) / (xf - x0));
 }
-
+/***************************************************
+ * COMPUTE DRAG
+ * Compute the drag in newtons:
+ *     d = ½ c ρ v^2 a
+ * INPUT
+ *     c = drag coefficient
+ *     ρ = density of the fluid/gas
+ *     v = velocity of the projectile
+ *     a = surface area
+ * OUTPUT
+ *     d : force in newtons
+ **************************************************/
 double Prototype::computeDrag()
 {
    return 0.5 * dragCoefficient * airDensity * computeTotalComponent(DX, DY) * computeTotalComponent(DX, DY) * surfaceArea;
 }
-
+/***************************************************
+ * COMPUTE ANGLE FROM COMPONENTS
+ * Compute the angle from the x and y velocity:
+ *     a = atan2(dx, dy)
+ * INPUT
+ *     dx: x velocity
+ *     dy: y velocity
+ * OUTPUT
+ *     a : new angle
+ **************************************************/
 void Prototype::computeAngleFromComponents()
 {
    angle = atan2(DX, DY);
 }
-
+/*************************************************
+* RADIANS FROM DEGEES
+* Convert degrees to radians:
+*     radians / 2pi = degrees / 360
+* INPUT
+*     d : degrees from 0 to 360
+* OUTPUT
+*     r : radians from 0 to 2pi
+**************************************************/
 double Prototype::convertDegToRad(double d)
 {
    return (d * 2 * PI / 360.0);
 }
-
+/************************************************
+* COMPUTE TOTAL COMPONENT
+* Given the horizontal and vertical components of
+* something (velocity or acceleration), determine
+* the total component. To do this, use the Pythagorean Theorem:
+*    x^2 + y^2 = t^2
+* where:
+*      x
+*    +-----
+*    |   /
+*  y |  / total
+*    | /
+*    |/
+* INPUT
+*    x : horizontal component
+*    y : vertical component
+* OUTPUT
+*    total : total component
+***********************************************/
 double Prototype::computeTotalComponent(double x, double y)
 {
    return sqrt(x * x + y * y);
 }
-
+/***********************************************
+* COMPUTE HORIZONTAL COMPONENT
+* Find the horizontal component of a velocity or acceleration.
+* The equation is:
+*     sin(a) = x / total
+* This can be expressed graphically:
+*      x
+*    +-----
+*    |   /
+*  y |  / total
+*    |a/
+*    |/
+* INPUT
+*     a : angle, in radians
+*     total : total velocity or acceleration
+* OUTPUT
+*     x : the vertical component of the total
+***********************************************/
 double Prototype::computeHorizontalComponent(double a, double total)
 {
    return total * sin(a);
 }
-
+/***********************************************
+* COMPUTE VERTICAL COMPONENT
+* Find the vertical component of a velocity or acceleration.
+* The equation is:
+*     cos(a) = y / total
+* This can be expressed graphically:
+*      x
+*    +-----
+*    |   /
+*  y |  / total
+*    |a/
+*    |/
+* INPUT
+*     a : angle, in radians
+*     total : total velocity or acceleration
+* OUTPUT
+*     y : the vertical component of the total
+***********************************************/
 double Prototype::computeVerticalComponent(double a, double total)
 {
    return total * cos(a);
 }
-
+/***********************************************
+* COMPUTE VELOCITY
+* Starting with a given velocity, find the new
+* velocity once acceleration is applied. This is
+* called the Kinematics equation. The
+* equation is:
+*     v = v + a t
+* INPUT
+*     v : velocity, in meters/second
+*     a : acceleration, in meters/second^2
+*     t : time, in seconds
+* OUTPUT
+*     v : new velocity, in meters/second
+***********************************************/
 double Prototype::computeVelocity(double v, double a, double t)
 {
    return v + (a * t);
 }
-
+/**************************************************
+ * COMPUTE ACCELERATION
+ * Find the acceleration given a thrust and mass.
+ * This will be done using Newton's second law of motion:
+ *     f = m * a
+ * INPUT
+ *     f : force, in Newtons (kg * m / s^2)
+ *     m : mass, in kilograms
+ * OUTPUT
+ *     a : acceleration, in meters/second^2
+ ***************************************************/
 double Prototype::computeAcceleration(double f, double m)
 {
    return (f / m);
 }
-
+/***************************************************
+ * COMPUTE DISTANCE
+ * Apply inertia to compute a new position using the distance equation.
+ * The equation is:
+ *     s = s + v t + 1/2 a t^2
+ * INPUT
+ *     s : original position, in meters
+ *     v : velocity, in meters/second
+ *     a : acceleration, in meters/second^2
+ *     t : time, in seconds
+ * OUTPUT
+ *     s : new position, in meters
+ **************************************************/
 double Prototype::computeDistance(double s, double v, double a, double t)
 {
    return s + (v * t) + (0.5 * a * t * t);

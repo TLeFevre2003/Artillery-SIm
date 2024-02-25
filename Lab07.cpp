@@ -170,6 +170,6 @@ int main()
 {
    double angle = 75.0;
    Prototype p(angle);
-   p.simulate(.01, 827.0);
+   p.simulate(.01);
 
 }
