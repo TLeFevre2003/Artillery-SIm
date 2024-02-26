@@ -166,10 +166,26 @@ double Position::metersFromPixels = 40.0;
 //   return 0;
 //}
 
+
+/************************************
+ * MAIN
+ ************************************/
 int main()
 {
-   double angle = 75.0;
-   Prototype p(angle);
-   p.simulate(.01);
+   double angle1 = 0.0;
+   Prototype p1(angle1);
+   p1.simulate(.01);
+   
+   double angle2 = 30.0;
+   Prototype p2(angle2);
+   p2.simulate(.01);
+   
+   double angle3 = 60.0;
+   Prototype p3(angle3);
+   p3.simulate(.01);
+   
+   double angle4 = -45.0;
+   Prototype p4(angle4);
+   p4.simulate(.01);
 
 }

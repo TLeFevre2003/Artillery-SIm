@@ -6,9 +6,9 @@
 
 using namespace std;
 /*****************************
-*PROTOTYPE
+* PROTOTYPE
 * authors: Jason Chandler, Tyler Lefevre
-* This is a class we made to give oursselves a clean workingspace to complete lab 7.
+* This class contains everything for an artillery simulation prototype.
 *****************************/
 class Prototype
 {
