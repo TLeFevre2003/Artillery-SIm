@@ -11,6 +11,7 @@
 
 #pragma once
 #include "testAcceleration.h"
+#include "testVelocity.h"
 
 class Angle;
 
@@ -21,6 +22,7 @@ class Angle;
 class Acceleration
 {
    friend TestAcceleration;
+   friend TestVelocity;
 private:
    //attributes
    double ddx;     // horizontal acceleration
