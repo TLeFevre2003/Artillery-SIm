@@ -9,8 +9,9 @@
 // ticket 3 10 minutes
 // ticket 4 3 minutes
 
-
 #pragma once
+#include "testAcceleration.h"
+
 class Angle;
 
 /*********************************************
@@ -19,6 +20,7 @@ class Angle;
  *********************************************/
 class Acceleration
 {
+   friend TestAcceleration;
 private:
    //attributes
    double ddx;     // horizontal acceleration

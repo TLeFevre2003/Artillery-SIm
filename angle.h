@@ -11,12 +11,14 @@
 
 #define _USE_MATH_DEFINES
 #include <math.h>   // for M_PI which is 3.14159
+#include "testAngle.h"
 
  /************************************
   * ANGLE
   ************************************/
 class Angle
 {
+   friend TestAngle;
 private:
    //atributes:
    double radians;   // 360 degrees equals 2 PI radians

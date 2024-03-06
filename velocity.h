@@ -16,9 +16,11 @@
 
 #pragma once
 #include "acceleration.h"
+#include "testVelocity.h"
 
 class Angle;
 class Acceleration;
+class TestVelocity;
 
  /*********************************************
   * Velocity
@@ -26,7 +28,7 @@ class Acceleration;
   *********************************************/
 class Velocity
 {
-   
+   friend TestVelocity;
 public:
    // constructors
    Velocity()                     : dx(0.0), dy(0.0) { }
