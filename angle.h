@@ -17,7 +17,6 @@
   ************************************/
 class Angle
 {
-public:
 private:
    //atributes:
    double radians;   // 360 degrees equals 2 PI radians
@@ -27,7 +26,7 @@ private:
    // Converters
    double convertToDegrees(double radian)  const { return (360.0 * radians) / (2.0 * M_PI); }
    double convertToRadians(double degrees) const { return normalize((degrees * 2.0 * M_PI) / 360.0); }
-   
+public:
    // Constructors
    Angle()                 : radians(0)                          {}
    Angle(const Angle& rhs) : radians(rhs.radians)                {}
