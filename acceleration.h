@@ -19,6 +19,10 @@ class Angle;
  *********************************************/
 class Acceleration
 {
+private:
+   //attributes
+   double ddx;     // horizontal acceleration
+   double ddy;     // vertical acceleration
 public:
    // constructors
    Acceleration()                       : ddx(0), ddy(0)     { }
@@ -37,10 +41,6 @@ public:
    void addDDX(double ddx){ this->ddx += ddx;}
    void addDDY(double ddy){ this->ddy += ddy;}
    void add   (const Acceleration& rhs);
-
-private:
-   double ddx;     // horizontal acceleration
-   double ddy;     // vertical acceleration
 };
 
 

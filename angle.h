@@ -7,10 +7,6 @@
  *    Everything we need to know about a direction
  ************************************************************************/
 
-//ticket 1 30 min
-//ticket 2 17 min
-
-
 #pragma once
 
 #define _USE_MATH_DEFINES
@@ -22,6 +18,15 @@
 class Angle
 {
 public:
+private:
+   //atributes:
+   double radians;   // 360 degrees equals 2 PI radians
+
+   double normalize(double radians) const;
+
+   // Converters
+   double convertToDegrees(double radian)  const { return (360.0 * radians) / (2.0 * M_PI); }
+   double convertToRadians(double degrees) const { return normalize((degrees * 2.0 * M_PI) / 360.0); }
    
    // Constructors
    Angle()                 : radians(0)                          {}
@@ -43,14 +48,5 @@ public:
    
    // Adder
    Angle& add(double delta) { radians = normalize(radians + delta); return *this;}
-
-private:
-   double normalize(double radians) const;
-
-   double radians;   // 360 degrees equals 2 PI radians
-   
-   // Converters
-   double convertToDegrees(double radian)  const{ return (360.0 * radians)/(2.0 * M_PI)           ;}
-   double convertToRadians(double degrees) const{ return normalize((degrees * 2.0 * M_PI) / 360.0);}
 };
 
