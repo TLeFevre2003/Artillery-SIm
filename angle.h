@@ -12,13 +12,18 @@
 #define _USE_MATH_DEFINES
 #include <math.h>   // for M_PI which is 3.14159
 #include "testAngle.h"
+#include "testAcceleration.h"
+#include "velocity.h"
 
  /************************************
   * ANGLE
   ************************************/
 class Angle
 {
+   // For unit tests
    friend TestAngle;
+   friend TestAcceleration;
+   friend TestVelocity;
 private:
    //atributes:
    double radians;   // 360 degrees equals 2 PI radians
