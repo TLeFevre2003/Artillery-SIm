@@ -8,9 +8,8 @@
  ************************************************************************/
 
 #pragma once
-
-
 #include "angle.h"
+#include "unitTest.h"
 
 /*******************************
  * TEST ANGLE
@@ -387,7 +386,7 @@ private:
       double r = 0.0;
       
       // exercise
-      a.add(r);
+      a.addOnto(r);
       
       // verify
       assertEquals(a.radians, 0.785398);
@@ -406,7 +405,7 @@ private:
       double r = M_PI;
       
       // exercise
-      a.add(r);
+      a.addOnto(r);
 
       // verify
       assertEquals(a.radians, 0.785398 + M_PI);
@@ -425,7 +424,7 @@ private:
       double r = M_PI + M_PI * 2.0;
       
       // exercise
-      a.add(r);
+      a.addOnto(r);
 
       // verify
       assertEquals(a.radians, 0.785398 + M_PI);
@@ -444,7 +443,7 @@ private:
       double r = -M_PI_2;
       
       // exercise
-      a.add(r);
+      a.addOnto(r);
 
       // verify
       assertEquals(a.radians, 5.49779);

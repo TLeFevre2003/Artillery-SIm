@@ -29,6 +29,39 @@ double Angle::normalize(double radians) const
    }
    return radians;
 }
+/*************************************
+* ANGLE : getHorizonatal
+* return the horitzontal section of the angle
+* based on the unit circle
+************************************/
+double Angle::getHorizontal() const
+{
+   return 0.0;
+}
+/*************************************
+* ANGLE : getVertical
+* return the vertical section of the angle
+* based on the unit circle
+************************************/
+double Angle::getVertical() const
+{
+   return 0.0;
+}
 
+/*************************************
+* ANGLE : isRight
+* return if the angle is between 0 and pi
+************************************/
+bool Angle::isRight() const
+{
+   return false;
+}
 
-
+/*************************************
+* ANGLE : isLeft
+* return if the angle is between 0 and pi
+************************************/
+bool Angle::isLeft() const
+{
+   return false;
+}

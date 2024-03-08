@@ -16,7 +16,6 @@
 
 #pragma once
 #include "acceleration.h"
-#include "testVelocity.h"
 
 class Angle;
 class Acceleration;

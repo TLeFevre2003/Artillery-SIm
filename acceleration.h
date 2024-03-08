@@ -10,10 +10,10 @@
 // ticket 4 3 minutes
 
 #pragma once
-#include "testAcceleration.h"
-#include "testVelocity.h"
 
 class Angle;
+class TestAcceleration;
+class TestVelocity;
 
 /*********************************************
  * Acceleration

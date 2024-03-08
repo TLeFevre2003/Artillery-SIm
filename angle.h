@@ -11,10 +11,11 @@
 
 #define _USE_MATH_DEFINES
 #include <math.h>   // for M_PI which is 3.14159
-#include "testAngle.h"
-#include "testAcceleration.h"
-#include "velocity.h"
+//#include "velocity.h"
 
+class TestAngle;
+class TestAcceleration;
+class TestVelocity;
  /************************************
   * ANGLE
   ************************************/
@@ -41,7 +42,11 @@ public:
 
    // Getters
    double getDegrees() const { return convertToDegrees(this->radians);}
-   double getRadians() const { return radians;                        }
+   double getRadians() const { return radians;    }
+   double getHorizontal() const;
+   double getVertical() const;
+   bool   isRight() const;
+   bool   isLeft() const;
 
    // Setters
    void setDegrees(double degrees) { radians = convertToRadians(degrees);}
@@ -51,7 +56,8 @@ public:
    void setRight()                 {radians        = M_PI_2;             } // M_2_PI == PI / 2}
    void setLeft()                  {radians        = M_PI + M_PI_2;      }
    void reverse()                  {radians       += M_PI;               }
-   
+   void setDxDy(double dx, double dy) {/*code goes here*/; }
+
    // Adder
    Angle& addOnto(double delta) { radians = normalize(radians + delta); return *this;}
    
@@ -60,14 +66,5 @@ public:
       this->addOnto(rhs.radians);
       return *this;
    }
-
-private:
-   double normalize(double radians) const;
-
-   double radians;   // 360 degrees equals 2 PI radians
-   
-   // Converters
-   double convertToDegrees(double radian)  const{ return (360.0 * radians)/(2.0 * M_PI)           ;}
-   double convertToRadians(double degrees) const{ return normalize((degrees * 2.0 * M_PI) / 360.0);}
 };
 
