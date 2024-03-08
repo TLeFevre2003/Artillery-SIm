@@ -2,7 +2,7 @@
  * Header File:
  *    TEST VELOCITY
  * Author:
- *    Br. Helfrich
+ *    <your name here>
  * Summary:
  *    Unit tests for the Velocity class.
  ************************************************************************/
@@ -21,7 +21,7 @@ class TestVelocity : public UnitTest
 public:
    void run()
    {
-      // Ticket 1: Without Add
+      // Ticket 5: From before
       constructor_default();
       constructor_nonDefault();
       getDX();
@@ -38,8 +38,6 @@ public:
       set_left();
       set_right();
       set_diagonal();
-      
-      // Ticket 2: Add
       addDX_zero();
       addDX_value();
       addDY_zero();
@@ -48,6 +46,17 @@ public:
       add_noTime();
       add_moving4Seconds();
       add_moving1Second();
+
+      // Ticket 6: Reverse and add
+      reverse_stationary();
+      reverse_up();
+      reverse_down();
+      reverse_left();
+      reverse_right();
+      reverse_diagonal();
+      addV_stationary();
+      addV_nothing();
+      addV_moving();
 
       report("Velocity");
    }
@@ -438,6 +447,66 @@ private:
       assertEquals(magnitude, 1.0);
    }
    
+   /*********************************************
+    * name:    REVERSE STATIONARY
+    * input:   (0, 0)
+    * output:  (0, 0)
+    *********************************************/
+   void reverse_stationary()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    REVERSE UP
+    * input:   (0,  10)
+    * output:  (0, -10)
+    *********************************************/
+   void reverse_up()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    REVERSE DOWN
+    * input:   (0, -12.34)
+    * output:  (0,  12.34)
+    *********************************************/
+   void reverse_down()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    REVERSE LEFT
+    * input:   (-300, 0)
+    * output:  ( 300, 0)
+    *********************************************/
+   void reverse_left()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    REVERSE RIGHT
+    * input:   ( 0.0123, 0)
+    * output:  (-0.0123, 0)
+    *********************************************/
+   void reverse_right()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    REVERSE DIAGONAL
+    * input:   ( 123.456, -7.89)
+    * output:  (-123.456,  7.89)
+    *********************************************/
+   void reverse_diagonal()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
    /*****************************************************************
     *****************************************************************
     * ADD
@@ -631,5 +700,35 @@ private:
       assertEquals(a.ddy, 5.0);
       assertEquals(t, 4.0);
    }  // teardown
+
+   /*********************************************
+    * name:    ADD  STATIONARY
+    * input:   vLHS=(0, 0) vRHS=(2.3, 4.5)
+    * output:  vLHS=(2.3, 4.5)
+    *********************************************/
+   void addV_stationary()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    ADD  NOTHING
+    * input:   vLHS=(2.3, 4.5) vRHS=(0, 0)
+    * output:  vLHS=(2.3, 4.5)
+    *********************************************/
+   void addV_nothing()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    ADD  MOVING
+    * input:   vLHS=(2.3, 4.5) vRHS=(100, 200)
+    * output:  vLHS=(102.3, 204.5)
+    *********************************************/
+   void addV_moving()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
 
 };

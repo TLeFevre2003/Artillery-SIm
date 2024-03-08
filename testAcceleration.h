@@ -2,7 +2,7 @@
  * Header File:
  *    TEST ACCELERATION
  * Author:
- *    Br. Helfrich
+ *    <your name here>
  * Summary:
  *    Unit tests for the Acceleration class.
  ************************************************************************/
@@ -316,182 +316,82 @@ private:
 
    /*********************************************
     * name:    ADD DDX ZERO
-    * input:   (2.3, 4.5) 0.0
-    * output:  (2.3, 4.5)
+    * input:   a=(2.3, 4.5) ddx=0.0
+    * output:  a=(2.3, 4.5)
     *********************************************/
    void addDDX_zero()
-   {  // setup
-      Acceleration a;
-      a.ddx = 2.3;
-      a.ddy = 4.5;
-      double ddx = 0.0;
-
-      // exercise
-      a.addDDX(ddx);
-
-      // verify
-      assertEquals(a.ddx, 2.3);
-      assertEquals(a.ddy, 4.5);
-      assertEquals(ddx, 0.0);
-   }  // teardown
-
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+   
    /*********************************************
     * name:    ADD DDX 4.1
-    * input:   (2.3, 4.5) 4.1
-    * output:  (6.4, 4.5)
+    * input:   a=(2.3, 4.5) ddx=4.1
+    * output:  a=(6.4, 4.5)
     *********************************************/
    void addDDX_value()
-   {  // setup
-      Acceleration a;
-      a.ddx = 2.3;
-      a.ddy = 4.5;
-      double ddx = 4.1;
-
-      // exercise
-      a.addDDX(ddx);
-
-      // verify
-      assertEquals(a.ddx, 6.4);
-      assertEquals(a.ddy, 4.5);
-      assertEquals(ddx, 4.1);
-   }  // teardown
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
 
    /*********************************************
     * name:    ADD DDY ZERO
-    * input:   (2.3, 4.5) 0.0
-    * output:  (2.3, 4.5)
+    * input:   a=(2.3, 4.5) ddy=0.0
+    * output:  a=(2.3, 4.5)
     *********************************************/
    void addDDY_zero()
-   {  // setup
-      Acceleration a;
-      a.ddx = 2.3;
-      a.ddy = 4.5;
-      double ddy = 0.0;
-
-      // exercise
-      a.addDDY(ddy);
-
-      // verify
-      assertEquals(a.ddx, 2.3);
-      assertEquals(a.ddy, 4.5);
-      assertEquals(ddy, 0.0);
-   }  // teardown
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
 
    /*********************************************
     * name:    ADD DDY 4.1
-    * input:   (2.3, 4.5) 4.1
-    * output:  (2.3, 8.6)
+    * input:   a=(2.3, 4.5) ddy=4.1
+    * output:  a=(2.3, 8.6)
     *********************************************/
    void addDDY_value()
-   {  // setup
-      Acceleration a;
-      a.ddx = 2.3;
-      a.ddy = 4.5;
-      double ddy = 4.1;
-
-      // exercise
-      a.addDDY(ddy);
-
-      // verify
-      assertEquals(a.ddx, 2.3);
-      assertEquals(a.ddy, 8.6);
-      assertEquals(ddy, 4.1);
-   }  // teardown
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
 
    /*********************************************
     * name:    ADD NOTHING TO NOTHING
-    * input:   (0.0, 0.0) (0.0, 0.0)
-    * output:  (0.0, 0.0)
+    * input:   aLHS=(0.0, 0.0) aRHS=(0.0, 0.0)
+    * output:  aLHS=(0.0, 0.0)
     *********************************************/
    void add_zeroZero()
-   {  // setup
-      Acceleration a;
-      a.ddx = 0.0;
-      a.ddy = 0.0;
-      Acceleration aRHS;
-      aRHS.ddx = 0.0;
-      aRHS.ddy = 0.0;
-
-      // exercise
-      a.add(aRHS);
-
-      // verify
-      assertEquals(a.ddx, 0.0);
-      assertEquals(a.ddy, 0.0);
-      assertEquals(aRHS.ddx, 0.0);
-      assertEquals(aRHS.ddy, 0.0);
-   }  // teardown
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
 
    /*********************************************
     * name:    ADD NOTHING TO A VALUE
-    * input:   (1.1, 2.2) (0.0, 0.0)
-    * output:  (1.1, 2.2)
+    * input:   aLHS=(1.1, 2.2) aRHS=(0.0, 0.0)
+    * output:  aLHS=(1.1, 2.2)
     *********************************************/
    void add_valueZero()
-   {  // setup
-      Acceleration a;
-      a.ddx = 1.1;
-      a.ddy = 2.2;
-      Acceleration aRHS;
-      aRHS.ddx = 0.0;
-      aRHS.ddy = 0.0;
-
-      // exercise
-      a.add(aRHS);
-
-      // verify
-      assertEquals(a.ddx, 1.1);
-      assertEquals(a.ddy, 2.2);
-      assertEquals(aRHS.ddx, 0.0);
-      assertEquals(aRHS.ddy, 0.0);
-   }  // teardown
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
 
    /*********************************************
     * name:    ADD A VALUE TO NOTHING
-    * input:   (0.0, 0.0) (4.4, 7.7)
-    * output:  (4.4, 7.7)
+    * input:   aLHS=(0.0, 0.0) aRHS=(4.4, 7.7)
+    * output:  aLHS=(4.4, 7.7)
     *********************************************/
    void add_zeroValue()
-   {  // setup
-      Acceleration a;
-      a.ddx = 0.0;
-      a.ddy = 0.0;
-      Acceleration aRHS;
-      aRHS.ddx = 4.4;
-      aRHS.ddy = 7.7;
-
-      // exercise
-      a.add(aRHS);
-
-      // verify
-      assertEquals(a.ddx, 4.4);
-      assertEquals(a.ddy, 7.7);
-      assertEquals(aRHS.ddx, 4.4);
-      assertEquals(aRHS.ddy, 7.7);
-   }  // teardown
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
 
    /*********************************************
     * name:    ADD A VALUE TO ANOTHER VALUE
-    * input:   (1.1, 2.2) (4.4, 7.7)
-    * output:  (5.5, 9.9)
+    * input:   aLHS=(1.1, 2.2) aRHS=(4.4, 7.7)
+    * output:  aLHS=(5.5, 9.9)
     *********************************************/
    void add_valueValue()
-   {  // setup
-      Acceleration a;
-      a.ddx = 1.1;
-      a.ddy = 2.2;
-      Acceleration aRHS;
-      aRHS.ddx = 4.4;
-      aRHS.ddy = 7.7;
-
-      // exercise
-      a.add(aRHS);
-
-      // verify
-      assertEquals(a.ddx, 5.5);
-      assertEquals(a.ddy, 9.9);
-      assertEquals(aRHS.ddx, 4.4);
-      assertEquals(aRHS.ddy, 7.7);
-   }  // teardown
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
 
 };
