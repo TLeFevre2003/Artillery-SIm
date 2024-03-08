@@ -632,7 +632,7 @@ private:
       pos.y = 22.2;
       Acceleration0 a;
       Velocity0 v;
-      pos.add(a, v, 1.1);
+      pos.add(a, v, 1.0);
       assertEquals(pos.x, 11.1);
       assertEquals(pos.y, 22.2);
    }
@@ -650,7 +650,7 @@ private:
       pos.y = 22.2;
       Acceleration0 a;
       Velocity54 v;
-      pos.add(a, v, 2.0);
+      pos.add(a, v, 1.0);
       assertEquals(pos.x, 11.6);
       assertEquals(pos.y, 22.6);
    }
@@ -669,8 +669,8 @@ private:
       Acceleration0 a;
       Velocity54 v;
       pos.add(a, v, 2.0);
-      assertEquals(pos.x, 11.6);
-      assertEquals(pos.y, 22.6);
+      assertEquals(pos.x, 12.1);
+      assertEquals(pos.y, 23.0);
    }
 
    /*********************************************
@@ -681,7 +681,14 @@ private:
     *********************************************/
    void add_fromStop()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      Position pos;
+      pos.x = 11.1;
+      pos.y = 22.2;
+      Acceleration23 a;
+      Velocity0 v;
+      pos.add(a, v, 1.0);
+      assertEquals(pos.x, 11.20);
+      assertEquals(pos.y, 22.35);
    }
 
    /*********************************************
@@ -692,7 +699,14 @@ private:
     *********************************************/
    void add_fromStopLonger()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      Position pos;
+      pos.x = 11.1;
+      pos.y = 22.2;
+      Acceleration23 a;
+      Velocity0 v;
+      pos.add(a, v, 2.0);
+      assertEquals(pos.x, 11.5);
+      assertEquals(pos.y, 22.8);
    }
 
    /*********************************************
