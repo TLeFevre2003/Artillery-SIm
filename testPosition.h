@@ -590,34 +590,34 @@ private:
    // Double classes to test Position and avoid testing Velocity
 
    // Note that Velocity0 ALWAYS returns v=(0.0,0.0)
-   class Velocity0 : public VelocityDummy
-   {
-      double getDX()  const { return 0.0; }
-      double getDY()  const { return 0.0; }
-   };
-
-   // Note that Velocity54 ALWAYS returns v=(0.5,0.4)
-   class Velocity54 : public VelocityDummy
-   {
-      double getDX()  const { return 0.5; }
-      double getDY()  const { return 0.4; }
-   };
-
-   // Double classes to test Position and avoid testing Acceleration
-
-   // Note that Acceleration0 ALWAYS returns a=(0.0,0.0)
-   class Acceleration0 : public AccelerationDummy
-   {
-      double getDDX() const { return 0.0; }
-      double getDDY() const { return 0.0; }
-   };
-
-   // Note that Acceleration23 ALWAYS returns a=(0.2,0.3)
-   class Acceleration23 : public AccelerationDummy
-   {
-      double getDDX() const { return 0.2; }
-      double getDDY() const { return 0.3; }
-   };
+//   class Velocity0 : public VelocityDummy
+//   {
+//      double getDX()  const { return 0.0; }
+//      double getDY()  const { return 0.0; }
+//   };
+//
+//   // Note that Velocity54 ALWAYS returns v=(0.5,0.4)
+//   class Velocity54 : public VelocityDummy
+//   {
+//      double getDX()  const { return 0.5; }
+//      double getDY()  const { return 0.4; }
+//   };
+//
+//   // Double classes to test Position and avoid testing Acceleration
+//
+//   // Note that Acceleration0 ALWAYS returns a=(0.0,0.0)
+//   class Acceleration0 : public AccelerationDummy
+//   {
+//      double getDDX() const { return 0.0; }
+//      double getDDY() const { return 0.0; }
+//   };
+//
+//   // Note that Acceleration23 ALWAYS returns a=(0.2,0.3)
+//   class Acceleration23 : public AccelerationDummy
+//   {
+//      double getDDX() const { return 0.2; }
+//      double getDDY() const { return 0.3; }
+//   };
 
 
    /*********************************************
@@ -630,8 +630,8 @@ private:
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
-      Acceleration0 a;
-      Velocity0 v;
+      Acceleration a(0,0);
+      Velocity v(0,0);
       pos.add(a, v, 1.0);
       assertEquals(pos.x, 11.1);
       assertEquals(pos.y, 22.2);
@@ -648,8 +648,8 @@ private:
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
-      Acceleration0 a;
-      Velocity54 v;
+      Acceleration a(0,0);
+      Velocity v(0,0);
       pos.add(a, v, 1.0);
       assertEquals(pos.x, 11.6);
       assertEquals(pos.y, 22.6);
@@ -666,8 +666,8 @@ private:
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
-      Acceleration0 a;
-      Velocity54 v;
+      Acceleration a(0,0);
+      Velocity v(.5,.4);
       pos.add(a, v, 2.0);
       assertEquals(pos.x, 12.1);
       assertEquals(pos.y, 23.0);
@@ -684,8 +684,8 @@ private:
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
-      Acceleration23 a;
-      Velocity0 v;
+      Acceleration a(0.2,.3);
+      Velocity v(0,0);
       pos.add(a, v, 1.0);
       assertEquals(pos.x, 11.20);
       assertEquals(pos.y, 22.35);
@@ -702,8 +702,8 @@ private:
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
-      Acceleration23 a;
-      Velocity0 v;
+      Acceleration a(0.2,.3);
+      Velocity v(0,0);
       pos.add(a, v, 2.0);
       assertEquals(pos.x, 11.5);
       assertEquals(pos.y, 22.8);
@@ -719,8 +719,8 @@ private:
    void add_complex()
    {  // SETUP
       Position       pos;
-      Velocity54     vel;
-      Acceleration23 acc;
+      Velocity     vel(.5,.4);
+      Acceleration acc(.2,.3);
       double         time(2.0);
       pos.x = 11.1;
       pos.y = 22.2;
