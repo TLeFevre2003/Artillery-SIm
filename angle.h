@@ -53,6 +53,21 @@ public:
    void reverse()                  {radians       += M_PI;               }
    
    // Adder
-   Angle& add(double delta) { radians = normalize(radians + delta); return *this;}
+   Angle& addOnto(double delta) { radians = normalize(radians + delta); return *this;}
+   
+   Angle & operator + (const Angle& rhs)
+   {
+      this->addOnto(rhs.radians);
+      return *this;
+   }
+
+private:
+   double normalize(double radians) const;
+
+   double radians;   // 360 degrees equals 2 PI radians
+   
+   // Converters
+   double convertToDegrees(double radian)  const{ return (360.0 * radians)/(2.0 * M_PI)           ;}
+   double convertToRadians(double degrees) const{ return normalize((degrees * 2.0 * M_PI) / 360.0);}
 };
 
