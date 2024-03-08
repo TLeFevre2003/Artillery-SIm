@@ -51,6 +51,8 @@ public:
       setDegrees_negativeSixLaps();
       add_positiveLap();
       add_negativeLap();
+      
+      addOnto_0();
 
       report("Angle");
    }
@@ -523,5 +525,20 @@ private:
       assertEquals(r, M_PI + M_PI_2);
       assertEquals(a.radians, M_PI + M_PI_2);
    }  // teardown
-   
+   /*********************************************
+    * name:   ADD ONTO - 0
+    * pre-condition radians = 1
+    * input:   radians = 0
+    * output:  radians = 1
+    *********************************************/
+   void addOnto_0()
+   {
+      Angle a;
+      double preCondition = 1.0;
+      a.radians = preCondition;
+      double delta = 0;
+      a.addOnto(delta);
+      
+      assertEquals(a.radians, preCondition);
+   }
 };
