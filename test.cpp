@@ -11,7 +11,8 @@
 #include "testPosition.h"
 #include "testGround.h"
 #include "testAngle.h"
-
+#include "testVelocity.h"
+#include "testAcceleration.h"
 /*****************************************************************
  * TEST RUNNER
  * Runs all the unit tests
@@ -19,6 +20,7 @@
 void testRunner()
 {
    TestPosition().run();
-   TestGround().run();
    TestAngle().run();
+   TestAcceleration().run();
+   TestVelocity().run();
 }
