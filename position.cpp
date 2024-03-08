@@ -9,6 +9,8 @@
 
 #include "position.h"
 #include <cassert>
+#include "acceleration.h"
+#include "velocity.h"
 
 
 Position::Position(double x, double y) : x(0.0), y(0.0)
@@ -26,6 +28,29 @@ Position& Position::operator = (const Position& pt)
    x = pt.x;
    y = pt.y;
    return *this;
+}
+
+/******************************************
+ * POINT : Equals
+ * Check that the two points are the same
+ *****************************************/
+bool Position::operator == (const Position& pt)
+{
+   return false;
+}
+
+/******************************************
+ * POINT : Not equals
+ * Check that the two points are the same
+ *****************************************/
+bool Position::operator != (const Position& pt)
+{
+   return false;
+}
+
+void add(Acceleration a, Velocity v, double t)
+{
+
 }
 
 

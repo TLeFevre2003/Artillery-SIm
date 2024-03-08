@@ -58,6 +58,13 @@ public:
    }
    double getZoom() const { return metersFromPixels; }
 
+   // Operators
+   bool operator == (const Position& rhs);
+   bool operator != (const Position& rhs);
+
+   //non-trival
+   void add(Acceleration a, Velocity v, double t);
+
 private:
    double x;                 // horizontal position
    double y;                 // vertical position
