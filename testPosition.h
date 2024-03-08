@@ -559,7 +559,7 @@ private:
    void setZoom_member()
    {
       Position pos;
-      pos.metersFrom = 99.9;
+      pos.metersFromPixels = 99.9;
       pos.setZoom(123.4);
       assertEquals(pos.metersFromPixels, 123.4);
    }
