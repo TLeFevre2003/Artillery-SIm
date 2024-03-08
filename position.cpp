@@ -48,9 +48,9 @@ bool Position::operator != (const Position& pt)
    return false;
 }
 
-void add(Acceleration a, Velocity v, double t)
+void Position::add(Acceleration a, Velocity v, double t)
 {
-
+   
 }
 
 
