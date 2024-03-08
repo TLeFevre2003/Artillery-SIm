@@ -269,11 +269,15 @@ private:
     *********************************************/
    void getPixelsX_noZoom()
    {
+      //setup
       Position pos;
       pos.x = 123.4;
       pos.y = 567.8;
       
+      //exercise
       pos.metersFromPixels = 1;
+
+      //verify
       assertEquals(pos.getPixelsX(),123.4);
 
 
@@ -286,12 +290,16 @@ private:
     *********************************************/
    void getPixelsX_zoom()
    {
+      //set up
       Position pos;
       pos.x = 123.4;
       pos.y = 567.8;
       
+      //exercise
       pos.metersFromPixels = 100;
-      assertEquals(pos.getPixelsX(),1.234;
+
+      //verify
+      assertEquals(pos.getPixelsX(),1.234);
       
    }
 
@@ -302,10 +310,12 @@ private:
     *********************************************/
    void getPixelsY_noZoom()
    {
+      //setup
       Position pos;
       pos.x = 123.4;
       pos.y = 567.8;
       
+      //exercise
       pos.metersFromPixels = 1;
       assertEquals(pos.getPixelsY(),567.8);
    }
