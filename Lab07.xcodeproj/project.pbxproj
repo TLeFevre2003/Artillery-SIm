@@ -53,6 +53,7 @@
 		F0A176F82B9B9ADE0021BC28 /* testAcceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAcceleration.h; sourceTree = "<group>"; };
 		F0A176F92B9B9ADE0021BC28 /* unitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unitTest.h; sourceTree = "<group>"; };
 		F0A176FA2B9B9ADE0021BC28 /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
+		F0A176FB2B9B9B060021BC28 /* testAngle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAngle.h; sourceTree = "<group>"; };
 		F0DEE60B2B872E5F00540F8A /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
 		F0DEE60C2B872E5F00540F8A /* prototype.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = prototype.cpp; sourceTree = "<group>"; };
 		F0DEE60D2B872E5F00540F8A /* prototype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prototype.h; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		C18A023027330832004537C6 = {
 			isa = PBXGroup;
 			children = (
+				F0A176FB2B9B9B060021BC28 /* testAngle.h */,
 				F0A176F82B9B9ADE0021BC28 /* testAcceleration.h */,
 				F0A176FA2B9B9ADE0021BC28 /* testVelocity.h */,
 				F0A176F92B9B9ADE0021BC28 /* unitTest.h */,
