@@ -50,6 +50,9 @@
 		C18A0256273308A4004537C6 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		C18A0257273308A4004537C6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C1B0EA5A27E22792004C9F71 /* testGround.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testGround.h; sourceTree = "<group>"; };
+		F0A176F82B9B9ADE0021BC28 /* testAcceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAcceleration.h; sourceTree = "<group>"; };
+		F0A176F92B9B9ADE0021BC28 /* unitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unitTest.h; sourceTree = "<group>"; };
+		F0A176FA2B9B9ADE0021BC28 /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
 		F0DEE60B2B872E5F00540F8A /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
 		F0DEE60C2B872E5F00540F8A /* prototype.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = prototype.cpp; sourceTree = "<group>"; };
 		F0DEE60D2B872E5F00540F8A /* prototype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prototype.h; sourceTree = "<group>"; };
@@ -80,6 +83,9 @@
 		C18A023027330832004537C6 = {
 			isa = PBXGroup;
 			children = (
+				F0A176F82B9B9ADE0021BC28 /* testAcceleration.h */,
+				F0A176FA2B9B9ADE0021BC28 /* testVelocity.h */,
+				F0A176F92B9B9ADE0021BC28 /* unitTest.h */,
 				F0DEE6132B872E6000540F8A /* acceleration.cpp */,
 				F0DEE60B2B872E5F00540F8A /* acceleration.h */,
 				F0DEE60F2B872E5F00540F8A /* angle.cpp */,
