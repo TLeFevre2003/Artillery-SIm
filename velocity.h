@@ -45,6 +45,15 @@ public:
    void addDX(double dx) { this->dx += dx; }
    void addDY(double dy) { this->dy += dy; }
    void add(Acceleration acceleration, double time);
+   Velocity& operator + (const Velocity& rhs)
+   {
+      this->addDX(rhs.dx);
+      this->addDY(rhs.dy);
+      return *this;
+   }
+
+   // this function will reverse the angle of the velosity but keep the magnitude
+   void reverse() {/*add code here*/; }
 
 private:
    double dx;           // horizontal velocity
