@@ -56,7 +56,7 @@ public:
    void setRight()                 {radians        = M_PI_2;             } // M_2_PI == PI / 2}
    void setLeft()                  {radians        = M_PI + M_PI_2;      }
    void reverse()                  {radians       += M_PI;               }
-   void setDxDy(double dx, double dy) {/*code goes here*/; }
+   void setDxDy(double dx, double dy) {radians = normalize(atan2(dx, dy)); }
 
    // Adder
    Angle& addOnto(double delta) { radians = normalize(radians + delta); return *this;}

@@ -50,7 +50,8 @@ bool Position::operator != (const Position& pt)
 
 void Position::add(Acceleration a, Velocity v, double t)
 {
-   
+   x += (v.getDX() * t) + (a.getDDX() * t * t * .5);
+   y += (v.getDY() * t) + (a.getDDY() * t * t * .5);
 }
 
 

@@ -53,7 +53,7 @@ public:
    }
 
    // this function will reverse the angle of the velosity but keep the magnitude
-   void reverse() {/*add code here*/; }
+   void reverse() {dx *= -1.0; dy *= -1.0; }
 
 private:
    double dx;           // horizontal velocity

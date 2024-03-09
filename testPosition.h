@@ -416,7 +416,7 @@ private:
       pos.metersFromPixels = 100;
       pos.setPixelsX(123.4);
       
-      assertEquals(pos.x, 123.4);
+      assertEquals(pos.x, 12340);
       assertEquals(pos.y, 888.8);
    }
    
@@ -451,7 +451,7 @@ private:
       pos.setPixelsY(123.4);
       
       assertEquals(pos.x, 999.9);
-      assertEquals(pos.y, 123.4);
+      assertEquals(pos.y, 12340);
    }
 
    /*********************************************
@@ -467,7 +467,7 @@ private:
       pos.addMetersX(123.4);
       
       assertEquals(pos.x, 4623.4);
-      assertEquals(pos.x, 2500.0);
+      assertEquals(pos.y, 2500.0);
    }
 
    /*********************************************
@@ -483,7 +483,7 @@ private:
       pos.addMetersY(123.4);
       
       assertEquals(pos.x, 4500.0);
-      assertEquals(pos.x, 2623.4);
+      assertEquals(pos.y, 2623.4);
    }
 
    /*********************************************
@@ -649,7 +649,7 @@ private:
       pos.x = 11.1;
       pos.y = 22.2;
       Acceleration a(0,0);
-      Velocity v(0,0);
+      Velocity v(.5,.4);
       pos.add(a, v, 1.0);
       assertEquals(pos.x, 11.6);
       assertEquals(pos.y, 22.6);

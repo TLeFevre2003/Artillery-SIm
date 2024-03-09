@@ -756,7 +756,7 @@ private:
    void isRight_right()
    {
       Angle a;
-      a = 0.523599;
+      a.radians = 0.523599;
       assertEquals(a.isRight(), true);
    }
 
@@ -768,8 +768,8 @@ private:
    void isRight_left()
    {
       Angle a;
-      a = 5.75959;
-      assertEquals(a.isLeft(), false);
+      a.radians = 5.75959;
+      assertEquals(a.isRight(), false);
    }
 
    /*********************************************
@@ -780,8 +780,8 @@ private:
    void isLeft_right()
    {
       Angle a;
-      a = 0.523599;
-      assertEquals(a.isRight(), false);
+      a.radians = 0.523599;
+      assertEquals(a.isLeft(), false);
    }
 
       /*********************************************
@@ -792,8 +792,9 @@ private:
    void isLeft_left()
    {
       Angle a;
-      a = 5.75959;
+      a.radians = 5.75959;
       assertEquals(a.isLeft(), true);
+      
    }
 
 };

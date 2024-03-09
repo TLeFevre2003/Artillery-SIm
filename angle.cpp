@@ -36,7 +36,7 @@ double Angle::normalize(double radians) const
 ************************************/
 double Angle::getHorizontal() const
 {
-   return 0.0;
+   return sin(radians);
 }
 /*************************************
 * ANGLE : getVertical
@@ -45,7 +45,7 @@ double Angle::getHorizontal() const
 ************************************/
 double Angle::getVertical() const
 {
-   return 0.0;
+   return cos(radians);
 }
 
 /*************************************
@@ -54,14 +54,14 @@ double Angle::getVertical() const
 ************************************/
 bool Angle::isRight() const
 {
-   return false;
+   return (radians > 0.0 && radians < M_PI);
 }
 
 /*************************************
 * ANGLE : isLeft
-* return if the angle is between 0 and pi
+* return if the angle is between pi and 2pi
 ************************************/
 bool Angle::isLeft() const
 {
-   return false;
+   return (radians > M_PI && radians < (2.0 * M_PI));
 }
