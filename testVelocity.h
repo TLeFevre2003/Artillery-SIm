@@ -2,7 +2,7 @@
  * Header File:
  *    TEST VELOCITY
  * Author:
- *    <your name here>
+ *    Tyler LeFevre and Jason Chandler
  * Summary:
  *    Unit tests for the Velocity class.
  ************************************************************************/
@@ -784,6 +784,8 @@ private:
       //verify
       assertEquals(vLHS.dx, 2.3);
       assertEquals(vLHS.dy, 4.5);
+      assertEquals(vRHS.dx, 2.3);
+      assertEquals(vRHS.dy, 4.5);
    }
 
    /*********************************************
@@ -808,6 +810,8 @@ private:
       //verify
       assertEquals(vLHS.dx, 2.3);
       assertEquals(vLHS.dy, 4.5);
+      assertEquals(vRHS.dx, 0.0);
+      assertEquals(vRHS.dy, 0.0);
    }
 
    /*********************************************
@@ -832,6 +836,8 @@ private:
       //verify
       assertEquals(vLHS.dx, 102.3);
       assertEquals(vLHS.dy, 204.5);
+      assertEquals(vRHS.dx, 100.0);
+      assertEquals(vRHS.dy, 200.0);
    }
 
 };

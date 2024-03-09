@@ -36,7 +36,7 @@ Position& Position::operator = (const Position& pt)
  *****************************************/
 bool Position::operator == (const Position& pt)
 {
-   return false;
+   return (this->x == pt.x && this->y == pt.y);
 }
 
 /******************************************
@@ -45,7 +45,7 @@ bool Position::operator == (const Position& pt)
  *****************************************/
 bool Position::operator != (const Position& pt)
 {
-   return false;
+   return !(*this == pt);
 }
 
 void Position::add(Acceleration a, Velocity v, double t)

@@ -2,7 +2,7 @@
  * Header File:
  *    TEST POSITION
  * Author:
- *    <your name here>
+ *    Tyler LeFevre and Jason Chandler
  * Summary:
  *    Unit tests for the Position class.
  ************************************************************************/
@@ -188,9 +188,15 @@ private:
     *********************************************/
    void getZoom_member()
    {
+      // setup
       Position pos;
       pos.metersFromPixels = 123.4;
-      assertEquals(pos.getZoom(), 123.4);
+      double zoom = -99.9;
+      // exercise
+      zoom = pos.getZoom();
+      // verify
+      assertEquals(zoom, 123.4);
+      // teardown
    }
    
    /*********************************************
@@ -203,14 +209,20 @@ private:
     *********************************************/
    void getZoom_anotherVariable()
    {
+      // setup
       Position pos1;
       Position pos2;
-      
       pos1.metersFromPixels = 99.9;
       pos2.metersFromPixels =123.4;
-      
-      assertEquals(pos1.getZoom(), 123.4);
-      assertEquals(pos2.getZoom(), 123.4);
+      double zoom1 = -99.99;
+      double zoom2 = -99.99;
+      // exercise
+      zoom1 = pos1.getZoom();
+      zoom2 = pos2.getZoom();
+      // verify
+      assertEquals(zoom1, 123.4);
+      assertEquals(zoom2, 123.4);
+      // teardown
 
    }
 
@@ -273,14 +285,13 @@ private:
       Position pos;
       pos.x = 123.4;
       pos.y = 567.8;
-      
-      //exercise
+      double px = -99.99;
       pos.metersFromPixels = 1;
-
+      //exercise
+      px = pos.getPixelsX();
       //verify
-      assertEquals(pos.getPixelsX(),123.4);
-
-
+      assertEquals(px,123.4);
+      // teardown
    }
    
    /*********************************************
@@ -290,17 +301,17 @@ private:
     *********************************************/
    void getPixelsX_zoom()
    {
-      //set up
+      //setup
       Position pos;
       pos.x = 123.4;
       pos.y = 567.8;
-      
-      //exercise
+      double px = -99.99;
       pos.metersFromPixels = 100;
-
+      //exercise
+      px = pos.getPixelsX();
       //verify
-      assertEquals(pos.getPixelsX(),1.234);
-      
+      assertEquals(px,1.234);
+      // teardown
    }
 
    /*********************************************
@@ -314,10 +325,13 @@ private:
       Position pos;
       pos.x = 123.4;
       pos.y = 567.8;
-      
-      //exercise
+      double py = -99.99;
       pos.metersFromPixels = 1;
-      assertEquals(pos.getPixelsY(),567.8);
+      //exercise
+      py = pos.getPixelsY();
+      // verify
+      assertEquals(py,567.8);
+      // teardown
    }
 
    /*********************************************
@@ -327,12 +341,17 @@ private:
     *********************************************/
    void getPixelsY_zoom()
    {
+      //setup
       Position pos;
       pos.x = 123.4;
       pos.y = 567.8;
-      
+      double py = -99.99;
       pos.metersFromPixels = 100;
-      assertEquals(pos.getPixelsY(),5.678);
+      //exercise
+      py = pos.getPixelsY();
+      // verify
+      assertEquals(py,5.678);
+      // teardown
    }
 
    /*****************************************************************
@@ -392,32 +411,37 @@ private:
     *********************************************/
    void setPixelsX_noZoom()
    {
+      // setup
       Position pos;
       pos.x = 999.9;
       pos.y = 888.8;
       pos.metersFromPixels = 1;
+      // exercise
       pos.setPixelsX(123.4);
-      
+      // verify
       assertEquals(pos.x, 123.4);
       assertEquals(pos.y, 888.8);
-      
+      // teardown
    }
 
    /*********************************************
     * name:    SET PIXELS X ZOOM
     * input:   pos=(999.9, 888.8) x=123.4 zoom=100
-    * output:  pos=(123.4, 888.8)
+    * output:  pos=(12340.00, 888.8)
     *********************************************/
    void setPixelsX_zoom()
    {
+      // setup
       Position pos;
       pos.x = 999.9;
       pos.y = 888.8;
       pos.metersFromPixels = 100;
+      // exercise
       pos.setPixelsX(123.4);
-      
-      assertEquals(pos.x, 12340);
+      // verify
+      assertEquals(pos.x, 12340.0);
       assertEquals(pos.y, 888.8);
+      // teardown
    }
    
    /*********************************************
@@ -427,31 +451,37 @@ private:
     *********************************************/
    void setPixelsY_noZoom()
    {
+      // setup
       Position pos;
       pos.x = 999.9;
       pos.y = 888.8;
       pos.metersFromPixels = 1;
+      // exercise
       pos.setPixelsY(123.4);
-      
+      // verify
       assertEquals(pos.x, 999.9);
       assertEquals(pos.y, 123.4);
+      // teardown
    }
 
    /*********************************************
     * name:    SET PIXELS Y ZOOM
     * input:   pos=(999.9, 888.8) y=123.4 zoom=100
-    * output:  pos=(999.9, 123.4)
+    * output:  pos=(999.9, 12340.0)
     *********************************************/
    void setPixelsY_zoom()
    {
+      // setup
       Position pos;
       pos.x = 999.9;
       pos.y = 888.8;
       pos.metersFromPixels = 100;
+      // exercise
       pos.setPixelsY(123.4);
-      
+      // verify
       assertEquals(pos.x, 999.9);
-      assertEquals(pos.y, 12340);
+      assertEquals(pos.y, 12340.0);
+      // teardown
    }
 
    /*********************************************
@@ -461,13 +491,16 @@ private:
     *********************************************/
    void addMetersX()
    {
+      // setup
       Position pos;
       pos.x = 4500.0;
       pos.y = 2500.0;
+      // exercise
       pos.addMetersX(123.4);
-      
+      // verify
       assertEquals(pos.x, 4623.4);
       assertEquals(pos.y, 2500.0);
+      // teardown
    }
 
    /*********************************************
@@ -477,13 +510,16 @@ private:
     *********************************************/
    void addMetersY()
    {
+      // setup
       Position pos;
       pos.x = 4500.0;
       pos.y = 2500.0;
+      // exercise
       pos.addMetersY(123.4);
-      
+      // verify
       assertEquals(pos.x, 4500.0);
       assertEquals(pos.y, 2623.4);
+      // teardown
    }
 
    /*********************************************
@@ -493,13 +529,17 @@ private:
     *********************************************/
    void addPixelsX_noZoom()
    {
+      // setup
       Position pos;
       pos.x = 4500;
       pos.y = 2500;
       pos.metersFromPixels = 1.0;
+      // exercise
       pos.addPixelsX(3.0);
+      // verify
       assertEquals(pos.x, 4503);
       assertEquals(pos.y, 2500);
+      // teardown
    }
 
    /*********************************************
@@ -509,13 +549,17 @@ private:
     *********************************************/
    void addPixelsX_zoom()
    {
+      // setup
       Position pos;
       pos.x = 4500;
       pos.y = 2500;
       pos.metersFromPixels = 50.0;
+      // exercise
       pos.addPixelsX(3.0);
+      // verify
       assertEquals(pos.x, 4650);
       assertEquals(pos.y, 2500);
+      // teardown
    }
 
    /*********************************************
@@ -525,13 +569,17 @@ private:
     *********************************************/
    void addPixelsY_noZoom()
    {
+      // setup
       Position pos;
       pos.x = 4500;
       pos.y = 2500;
       pos.metersFromPixels = 1.0;
+      // exercise
       pos.addPixelsY(3.0);
+      // verify
       assertEquals(pos.x, 4500);
       assertEquals(pos.y, 2503);
+      // teardown
    }
 
    /*********************************************
@@ -541,13 +589,17 @@ private:
     *********************************************/
    void addPixelsY_zoom()
    {
+      // setup
       Position pos;
       pos.x = 4500;
       pos.y = 2500;
       pos.metersFromPixels = 50.0;
+      // exercise
       pos.addPixelsY(3.0);
+      // verify
       assertEquals(pos.x, 4500);
       assertEquals(pos.y, 2650);
+      // teardown
    }
 
    /*********************************************
@@ -558,10 +610,14 @@ private:
     *********************************************/
    void setZoom_member()
    {
+      // setup
       Position pos;
       pos.metersFromPixels = 99.9;
+      // exercise
       pos.setZoom(123.4);
+      // verify
       assertEquals(pos.metersFromPixels, 123.4);
+      // teardown
    }
 
    /*********************************************
@@ -575,16 +631,17 @@ private:
     *********************************************/
    void setZoom_anotherVariable()
    {
+      // setup
       Position pos1;
       Position pos2;
-      
       pos1.metersFromPixels = 99.9;
-      pos2.metersFromPixels = 88.8;
-      
+      pos2.metersFromPixels = 88.9;
+      // exercise
       pos2.setZoom(123.4);
-      
+      // verify
       assertEquals(pos1.metersFromPixels, 123.4);
       assertEquals(pos2.metersFromPixels, 123.4);
+      // teardown
    }
 
    // Double classes to test Position and avoid testing Velocity
@@ -627,14 +684,18 @@ private:
     *********************************************/
    void add_stationary()
    {
+      // setup
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
       Acceleration a(0,0);
       Velocity v(0,0);
+      // exercise
       pos.add(a, v, 1.0);
+      // verify
       assertEquals(pos.x, 11.1);
       assertEquals(pos.y, 22.2);
+      // teardown
    }
 
    /*********************************************
@@ -645,14 +706,18 @@ private:
     *********************************************/
    void add_moving()
    {
+      // setup
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
       Acceleration a(0,0);
       Velocity v(.5,.4);
+      // exercise
       pos.add(a, v, 1.0);
+      // verify
       assertEquals(pos.x, 11.6);
       assertEquals(pos.y, 22.6);
+      // teardown
    }
 
    /*********************************************
@@ -663,14 +728,18 @@ private:
     *********************************************/
    void add_movingLonger()
    {
+      // setup
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
       Acceleration a(0,0);
       Velocity v(.5,.4);
+      // exercise
       pos.add(a, v, 2.0);
+      // verify
       assertEquals(pos.x, 12.1);
       assertEquals(pos.y, 23.0);
+      // teardown
    }
 
    /*********************************************
@@ -681,14 +750,18 @@ private:
     *********************************************/
    void add_fromStop()
    {
+      // setup
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
-      Acceleration a(0.2,.3);
+      Acceleration a(.2,.3);
       Velocity v(0,0);
+      // exercise
       pos.add(a, v, 1.0);
+      // verify
       assertEquals(pos.x, 11.20);
       assertEquals(pos.y, 22.35);
+      // teardown
    }
 
    /*********************************************
@@ -699,14 +772,18 @@ private:
     *********************************************/
    void add_fromStopLonger()
    {
+      // setup
       Position pos;
       pos.x = 11.1;
       pos.y = 22.2;
-      Acceleration a(0.2,.3);
+      Acceleration a(.2,.3);
       Velocity v(0,0);
+      // exercise
       pos.add(a, v, 2.0);
+      // verify
       assertEquals(pos.x, 11.5);
       assertEquals(pos.y, 22.8);
+      // teardown
    }
 
    /*********************************************

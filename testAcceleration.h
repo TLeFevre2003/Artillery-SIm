@@ -2,7 +2,7 @@
  * Header File:
  *    TEST ACCELERATION
  * Author:
- *    <your name here>
+ *    Tyler LeFevre and Jason Chandler
  * Summary:
  *    Unit tests for the Acceleration class.
  ************************************************************************/
@@ -411,6 +411,8 @@ private:
       //verify
       assertEquals(aLHS.ddx, 0.0);
       assertEquals(aLHS.ddy, 0.0);
+      assertEquals(aRHS.ddx, 0.0);
+      assertEquals(aRHS.ddy, 0.0);
    }
 
    /*********************************************
@@ -434,6 +436,8 @@ private:
       //verify
       assertEquals(aLHS.ddx, 1.1);
       assertEquals(aLHS.ddy, 2.2);
+      assertEquals(aRHS.ddx, 0.0);
+      assertEquals(aRHS.ddy, 0.0);
    }
 
    /*********************************************
@@ -457,6 +461,8 @@ private:
       //verify
       assertEquals(aLHS.ddx, 4.4);
       assertEquals(aLHS.ddy, 7.7);
+      assertEquals(aRHS.ddx, 4.4);
+      assertEquals(aRHS.ddy, 7.7);
    }
 
    /*********************************************
@@ -480,6 +486,8 @@ private:
       //verify
       assertEquals(aLHS.ddx, 5.5);
       assertEquals(aLHS.ddy, 9.9);
+      assertEquals(aRHS.ddx, 4.4);
+      assertEquals(aRHS.ddy, 7.7);
    }
 
 };

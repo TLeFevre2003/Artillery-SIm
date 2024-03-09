@@ -2,7 +2,7 @@
  * Header File:
  *    TEST ANGLE
  * Author:
- *    <your name here>
+ *    Tyler LeFevre and Jason Chandler
  * Summary:
  *    All the unit tests for ANGLE
  ************************************************************************/
@@ -404,10 +404,8 @@ private:
       Angle a;
       a.radians = 0.785398;
       double r = 0.0;
-      
       // exercise
       a.addOnto(r);
-      
       // verify
       assertEquals(a.radians, 0.785398);
       assertEquals(r, 0.0);
@@ -423,10 +421,8 @@ private:
       Angle a;
       a.radians = 0.785398;
       double r = M_PI;
-      
       // exercise
       a.addOnto(r);
-
       // verify
       assertEquals(a.radians, 0.785398 + M_PI);
       assertEquals(r, M_PI);
@@ -442,10 +438,8 @@ private:
       Angle a;
       a.radians = 0.785398;
       double r = M_PI + M_PI * 2.0;
-      
       // exercise
       a.addOnto(r);
-
       // verify
       assertEquals(a.radians, 0.785398 + M_PI);
       assertEquals(r, M_PI + M_PI * 2.0);
@@ -461,10 +455,8 @@ private:
       Angle a;
       a.radians = 0.785398;
       double r = -M_PI_2;
-      
       // exercise
       a.addOnto(r);
-
       // verify
       assertEquals(a.radians, 5.49779);
       assertEquals(r, -M_PI_2);
@@ -477,11 +469,17 @@ private:
     *********************************************/
    void setDxDy_up()
    {
+      // setup
       Angle a;
       double dx = 0.0;
       double dy = 1.0;
+      // exercise
       a.setDxDy(dx, dy);
+      // verify
       assertEquals(a.radians, 0);
+      assertEquals(dx, 0.0);
+      assertEquals(dy, 1.0);
+      // teardown
    }
 
 
@@ -492,11 +490,17 @@ private:
     *********************************************/
    void setDxDy_right()
    {
+      // setup
       Angle a;
       double dx = 4.0;
       double dy = 0.0;
+      // exercise
       a.setDxDy(dx, dy);
+      // verify
       assertEquals(a.radians, M_PI/2);
+      assertEquals(dx, 4.0);
+      assertEquals(dy, 0.0);
+      // teardown
    }
 
    /*********************************************
@@ -506,11 +510,17 @@ private:
     *********************************************/
    void setDxDy_left()
    {
+      // setup
       Angle a;
       double dx = -0.01;
       double dy = 0.0;
+      // exercise
       a.setDxDy(dx, dy);
+      // verify
       assertEquals(a.radians, (3.0 * M_PI)/2);
+      assertEquals(dx, -0.01);
+      assertEquals(dy, 0.0);
+      // teardown
    }
 
    /*********************************************
@@ -524,12 +534,12 @@ private:
       a.radians = 1.234567;
       double dx = 5.0;
       double dy = 8.6602;
-
       // exercise
       a.setDxDy(dx, dy);
-
       // verify
       assertEquals(a.radians, M_PI / 6.0);
+      assertEquals(dx, 5.0);
+      assertEquals(dy, 8.6602);
    }  // teardown
 
 
@@ -614,10 +624,16 @@ private:
     *********************************************/
    void getHorizontal_up()
    {
+      // setup
       Angle a;
       a.radians = 0.0;
-      double dx = a.getHorizontal();
+      double dx = -99.9;
+      // exercise
+      dx = a.getHorizontal();
+      // verify
       assertEquals(dx, 0.0);
+      assertEquals(a.radians, 0.0);
+      //teardown
    }
 
    /*********************************************
@@ -627,10 +643,16 @@ private:
     *********************************************/
    void getHorizontal_down()
    {
+      // setup
       Angle a;
       a.radians = M_PI;
-      double dx = a.getHorizontal();
+      double dx = -99.9;
+      // exercise
+      dx = a.getHorizontal();
+      // verify
       assertEquals(dx, 0.0);
+      assertEquals(a.radians, M_PI);
+      // teardown
    }
 
 
@@ -641,10 +663,16 @@ private:
     *********************************************/
    void getHorizontal_left()
    {
+      // setup
       Angle a;
       a.radians = (3 * M_PI / 2);
-      double dx = a.getHorizontal();
+      double dx = -99.9;
+      // exercise
+      dx = a.getHorizontal();
+      // verify
       assertEquals(dx, -1.0);
+      assertEquals(a.radians, (3 * M_PI / 2));
+      // teardown
    }
 
    /*********************************************
@@ -654,10 +682,16 @@ private:
     *********************************************/
    void getHorizontal_right()
    {
+      // setup
       Angle a;
       a.radians = M_PI / 2;
-      double dx = a.getHorizontal();
+      double dx = -99.9;
+      // exercise
+      dx = a.getHorizontal();
+      // verify
       assertEquals(dx, 1.0);
+      assertEquals(a.radians, M_PI/2);
+      // teardown
    }
 
    /*********************************************
@@ -685,10 +719,16 @@ private:
     *********************************************/
    void getVertical_up()
    {
+      // setup
       Angle a;
       a.radians = 0.0;
-      double dy = a.getVertical();
+      double dy = -99.9;
+      // exercise
+      dy = a.getVertical();
+      // verify
       assertEquals(dy, 1.0);
+      assertEquals(a.radians, 0.0);
+      // teardown
    }
 
    /*********************************************
@@ -698,10 +738,16 @@ private:
     *********************************************/
    void getVertical_down()
    {
+      // setup
       Angle a;
       a.radians = M_PI;
-      double dy = a.getVertical();
+      double dy = -99.9;
+      // exercise
+      dy = a.getVertical();
+      // verify
       assertEquals(dy, -1.0);
+      assertEquals(a.radians, M_PI);
+      // teardown
    }
 
 
@@ -712,10 +758,16 @@ private:
     *********************************************/
    void getVertical_left()
    {
+      // setup
       Angle a;
       a.radians = (3 * M_PI / 2);
-      double dy = a.getVertical();
+      double dy = -99.9;
+      // exercise
+      dy = a.getVertical();
+      // verify
       assertEquals(dy, 0.0);
+      assertEquals(a.radians, (3 * M_PI /2));
+      // teardown
    }
 
    /*********************************************
@@ -725,10 +777,16 @@ private:
     *********************************************/
    void getVertical_right()
    {
+      // setup
       Angle a;
       a.radians = M_PI / 2;
-      double dy = a.getVertical();
+      double dy = -99.9;
+      // exercise
+      dy = a.getVertical();
+      // verify
       assertEquals(dy, 0.0);
+      assertEquals(a.radians, M_PI/2);
+      // teardown
    }
 
    /*********************************************
@@ -755,9 +813,15 @@ private:
     *********************************************/
    void isRight_right()
    {
+      // setup
       Angle a;
       a.radians = 0.523599;
-      assertEquals(a.isRight(), true);
+      bool right = false;
+      // exercise
+      right = a.isRight();
+      // verify
+      assertEquals(right, true);
+      // teardown
    }
 
    /*********************************************
@@ -767,9 +831,15 @@ private:
     *********************************************/
    void isRight_left()
    {
+      // setup
       Angle a;
       a.radians = 5.75959;
-      assertEquals(a.isRight(), false);
+      bool right = true;
+      // exercise
+      right = a.isRight();
+      // verify
+      assertEquals(right, false);
+      // teardown
    }
 
    /*********************************************
@@ -779,9 +849,15 @@ private:
     *********************************************/
    void isLeft_right()
    {
+      // setup
       Angle a;
       a.radians = 0.523599;
-      assertEquals(a.isLeft(), false);
+      bool left = false;
+      // exercise
+      left = a.isLeft();
+      // verify
+      assertEquals(left, false);
+      // teardown
    }
 
       /*********************************************
@@ -791,10 +867,15 @@ private:
     *********************************************/
    void isLeft_left()
    {
+      // setup
       Angle a;
       a.radians = 5.75959;
-      assertEquals(a.isLeft(), true);
-      
+      bool left = false;
+      // exercise
+      left = a.isLeft();
+      // verify
+      assertEquals(left, true);
+      // teardown
    }
 
 };
