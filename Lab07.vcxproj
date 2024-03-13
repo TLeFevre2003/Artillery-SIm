@@ -143,6 +143,7 @@
     <ClCompile Include="angle.cpp" />
     <ClCompile Include="ground.cpp" />
     <ClCompile Include="Lab07.cpp" />
+    <ClCompile Include="physics.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="prototype.cpp" />
     <ClCompile Include="test.cpp" />
@@ -154,12 +155,14 @@
     <ClInclude Include="acceleration.h" />
     <ClInclude Include="angle.h" />
     <ClInclude Include="ground.h" />
+    <ClInclude Include="physics.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="prototype.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />
     <ClInclude Include="testGround.h" />
+    <ClInclude Include="testPhysics.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testVelocity.h" />
     <ClInclude Include="uiDraw.h" />
