@@ -28,18 +28,19 @@ double linearInterpolation(const Mapping mapping[], int numMapping, double domai
          Y1 = mapping[i + 1].range;
          X0 = mapping[i].domain;
          X1 = mapping[i+1].domain;
-
+         
          if (X0 <= domain && domain <= X1)
          {
             double value = linearInterpolation(X0, Y0, X1, Y1,domain);
             return value;
          }
+      }
       
    }
    
    
    
-   return -99.9;
+   return Y0;
 }
 
 /*********************************************************
