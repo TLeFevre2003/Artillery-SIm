@@ -13,6 +13,7 @@
 #include "testAngle.h"
 #include "testVelocity.h"
 #include "testAcceleration.h"
+#include "testPhysics.h"
 /*****************************************************************
  * TEST RUNNER
  * Runs all the unit tests
@@ -23,4 +24,5 @@ void testRunner()
    TestAngle().run();
    TestAcceleration().run();
    TestVelocity().run();
+   TestPhysics().run();
 }
