@@ -15,6 +15,30 @@
  *********************************************************/
 double linearInterpolation(const Mapping mapping[], int numMapping, double domain)
 {
+   double Y0 = 0;
+   double Y1 = 0;
+   double X0 = 0;
+   double X1 = 0;
+   
+   for (int i = 0; i <numMapping; ++i)
+   {
+      if (i + 1 < numMapping)
+      {
+         Y0 = mapping[i].range;
+         Y1 = mapping[i + 1].range;
+         X0 = mapping[i].domain;
+         X1 = mapping[i+1].domain;
+
+         if (X0 <= domain && domain <= X1)
+         {
+            double value = linearInterpolation(X0, Y0, X1, Y1,domain);
+            return value;
+         }
+      
+   }
+   
+   
+   
    return -99.9;
 }
 

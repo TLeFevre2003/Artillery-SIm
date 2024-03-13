@@ -15,6 +15,7 @@
 		C18A025427330881004537C6 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18A024E27330881004537C6 /* position.cpp */; };
 		C18A0258273308A4004537C6 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18A0256273308A4004537C6 /* GLUT.framework */; };
 		C18A0259273308A4004537C6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18A0257273308A4004537C6 /* OpenGL.framework */; };
+		F0A177122BA268290021BC28 /* physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0A177102BA268260021BC28 /* physics.cpp */; };
 		F0DEE6182B87BED900540F8A /* prototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0DEE60C2B872E5F00540F8A /* prototype.cpp */; };
 		F0DEE6192B87BEFE00540F8A /* velocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0DEE60E2B872E5F00540F8A /* velocity.cpp */; };
 		F0DEE61A2B87BF0900540F8A /* angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0DEE60F2B872E5F00540F8A /* angle.cpp */; };
@@ -54,6 +55,9 @@
 		F0A176F92B9B9ADE0021BC28 /* unitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unitTest.h; sourceTree = "<group>"; };
 		F0A176FA2B9B9ADE0021BC28 /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
 		F0A176FB2B9B9B060021BC28 /* testAngle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAngle.h; sourceTree = "<group>"; };
+		F0A1770F2BA268260021BC28 /* testPhysics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testPhysics.h; sourceTree = "<group>"; };
+		F0A177102BA268260021BC28 /* physics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = physics.cpp; sourceTree = "<group>"; };
+		F0A177112BA268260021BC28 /* physics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = physics.h; sourceTree = "<group>"; };
 		F0DEE60B2B872E5F00540F8A /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
 		F0DEE60C2B872E5F00540F8A /* prototype.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = prototype.cpp; sourceTree = "<group>"; };
 		F0DEE60D2B872E5F00540F8A /* prototype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prototype.h; sourceTree = "<group>"; };
@@ -84,6 +88,9 @@
 		C18A023027330832004537C6 = {
 			isa = PBXGroup;
 			children = (
+				F0A177102BA268260021BC28 /* physics.cpp */,
+				F0A177112BA268260021BC28 /* physics.h */,
+				F0A1770F2BA268260021BC28 /* testPhysics.h */,
 				F0A176FB2B9B9B060021BC28 /* testAngle.h */,
 				F0A176F82B9B9ADE0021BC28 /* testAcceleration.h */,
 				F0A176FA2B9B9ADE0021BC28 /* testVelocity.h */,
@@ -193,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C18A024F27330881004537C6 /* ground.cpp in Sources */,
+				F0A177122BA268290021BC28 /* physics.cpp in Sources */,
 				F0DEE61B2B87BF0D00540F8A /* acceleration.cpp in Sources */,
 				C18A025027330881004537C6 /* test.cpp in Sources */,
 				F0DEE61A2B87BF0900540F8A /* angle.cpp in Sources */,
