@@ -1038,8 +1038,8 @@ private:
    }
 
     /*******************************************************
-     * GRAVITY FROM ALTITUDE - exactly between two values, 5,5000m
-     * input:  altitude=5,5000m
+     * GRAVITY FROM ALTITUDE - exactly between two values, 5,500m
+     * input:  altitude=5,500m
      * output: gravity=9.795
      ********************************************************/
    void gravityFromAltitude_5500()
@@ -1316,7 +1316,7 @@ private:
      ********************************************************/
    void dragFromMach_314()
    {  // setup
-      double speedMach = 0.1;
+      double speedMach = 0.1; // 3.14159
       double drag = -99.99;
       // exercise
       drag = dragFromMach(speedMach);
