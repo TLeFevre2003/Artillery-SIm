@@ -20,6 +20,16 @@ double linearInterpolation(const Mapping mapping[], int numMapping, double domai
    double X0 = 0;
    double X1 = 0;
    
+   if (domain < mapping[0].domain)
+   {
+      return mapping[0].range;
+   }
+   
+   if (domain > mapping[numMapping-1].domain)
+   {
+      return mapping[numMapping-1].range;
+   }
+   
    for (int i = 0; i <numMapping; ++i)
    {
       if (i + 1 < numMapping)
