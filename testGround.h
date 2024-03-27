@@ -21,7 +21,7 @@ using namespace std;
  * TEST GROUND
  * A friend class for Ground which contains the Ground unit tests
  ********************************/
-class TestGround
+class TestGround : public UnitTest
 {
 public:
    void run()
@@ -37,6 +37,8 @@ public:
       getTarget_seven();
 
       draw();
+      
+      report("Ground");
    }
 
 private:

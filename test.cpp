@@ -14,6 +14,8 @@
 #include "testVelocity.h"
 #include "testAcceleration.h"
 #include "testPhysics.h"
+#include "testHowitzer.h"
+#include "testProjectile.h"
 /*****************************************************************
  * TEST RUNNER
  * Runs all the unit tests
@@ -25,4 +27,7 @@ void testRunner()
    TestAcceleration().run();
    TestVelocity().run();
    TestPhysics().run();
+   TestHowitzer().run();
+   TestProjectile().run();
+   
 }

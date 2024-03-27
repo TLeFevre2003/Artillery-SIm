@@ -13,6 +13,8 @@
 #include "howitzer.h"
 #include "unitTest.h"
 
+#define NOT_YET_IMPLEMENTED true
+
 /*******************************
  * TEST HOWITZER
  * A friend class for Howitzer which contains the Howitzer unit tests

@@ -17,6 +17,8 @@
 class TestPosition;
 class Acceleration;
 class Velocity;
+class TestHowitzer;
+class TestProjectile;
 
 /*********************************************
  * Position
@@ -26,7 +28,8 @@ class Position
 {
 public:
    friend TestPosition;
-   
+   friend TestHowitzer;
+   friend TestProjectile;
    // constructors
    Position()            : x(0.0), y(0.0)  {}
    Position(double x, double y);

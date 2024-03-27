@@ -20,6 +20,7 @@
 
 // forward declaration for the unit test class
 class TestProjectile; 
+class TestHowitzer;
 
  /**********************************************************************
   * Projectile
@@ -30,7 +31,7 @@ class Projectile
 public:
    // Friend the unit test class
    friend ::TestProjectile;
-
+   friend ::TestHowitzer;
    // create a new projectile with the default settings
    Projectile() : mass(-99.9), radius(-99.9) {}
 
