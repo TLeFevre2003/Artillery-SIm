@@ -1,6 +1,6 @@
 /***********************************************************************
  * Source File:
- *     UI INTERACT
+ *     USER INTERFACE INTERACTION
  * Author:
  *     Br. Helfrich
  * Description:
@@ -186,6 +186,9 @@ void Interface::keyEvent(int key, bool fDown)
       case ' ':
          isSpacePress = fDown;
          break;
+      case 'q':
+         isQPress = fDown;
+         break;
    }
 }
 
@@ -206,6 +209,7 @@ void Interface::keyEvent()
    if (isRightPress)
       isRightPress++;
    isSpacePress = false;
+   isQPress = false;
 }
 
 /************************************************************************
@@ -250,6 +254,7 @@ int          Interface::isUpPress    = 0;
 int          Interface::isLeftPress  = 0;
 int          Interface::isRightPress = 0;
 bool         Interface::isSpacePress = false;
+bool         Interface::isQPress     = false;
 bool         Interface::initialized  = false;
 double       Interface::timePeriod   = 1.0 / 30; // default to 30 frames/second
 unsigned int Interface::nextTick     = 0;        // redraw now please
@@ -265,8 +270,7 @@ void (*Interface::callBack)(const Interface *, void *) = NULL;
  *           argv:       The actual command-line parameters
  *           title:      The text for the titlebar of the window
  *************************************************************************/
-void Interface::initialize(int argc, char ** argv, const char * title, 
-                           const Position & posUpperRight)
+void Interface::initialize(const char * title, const Position & posUpperRight)
 {
    if (initialized)
       return;
@@ -275,7 +279,8 @@ void Interface::initialize(int argc, char ** argv, const char * title,
    srand((unsigned int)time(NULL));
 
    // create the window
-   glutInit(&argc, argv);
+   int argc = 0;
+   glutInit(&argc, nullptr /*argv*/);
    glutInitWindowSize((int)posUpperRight.getPixelsX()-1,
                       (int)posUpperRight.getPixelsY()-1);   // size of the window
             

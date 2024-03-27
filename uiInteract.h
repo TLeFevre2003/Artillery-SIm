@@ -1,6 +1,6 @@
 /*********************************************
  * Header file:
- *    UI INTERFACE
+ *    USER INTERFACE INTERACTION
  * Author:
  *    Br. Helfrich
  * Summary:
@@ -33,11 +33,11 @@ public:
 
    // Constructor if you want to set up the window with anything but
    // the default parameters
-   Interface(int argc, char ** argv, const char * title, const Position & posUpperRight)
+   Interface(const char * title, const Position & posUpperRight)
    {
-      initialize(argc, argv, title, posUpperRight);
+      initialize(title, posUpperRight);
    }
-
+   
    // This will set the game in motion
    void run(void (*callBack)(const Interface *, void *), void *p);
 
@@ -48,7 +48,7 @@ public:
    void setNextDrawTime();
 
    // Retrieve the next tick time... the time of the next draw.
-   unsigned int getNextTick() { return nextTick; }
+   unsigned int getNextTick() { return nextTick; };
 
    // How many frames per second are we configured for?
    void setFramesPerSecond(double value);
@@ -67,12 +67,13 @@ public:
    int  isLeft()      const { return isLeftPress;  }
    int  isRight()     const { return isRightPress; }
    bool isSpace()     const { return isSpacePress; }
+   bool isQ()         const { return isQPress;     }
 
    static void *p;                   // for client
    static void (*callBack)(const Interface *, void *);
 
 private:
-   void initialize(int argc, char ** argv, const char * title, const Position & posUpperRight);
+   void initialize(const char * title, const Position & posUpperRight);
 
    static bool         initialized;  // only run the constructor once!
    static double       timePeriod;   // interval between frame draws
@@ -83,6 +84,7 @@ private:
    static int  isLeftPress;          //    "   left       "
    static int  isRightPress;         //    "   right      "
    static bool isSpacePress;         //    "   space      "
+   static bool isQPress;             //    "   space      "
 };
 
 
@@ -92,7 +94,7 @@ private:
  * This is the main callback from OpenGL. It gets called constantly by
  * the graphics engine to refresh and draw the window.  Here we will
  * clear the background buffer, draw on it, and send it to the forefront
- * when the appropriate time period has passed.
+ * when the appropriate time period has passsed.
  *
  * Note: This and all other callbacks can't be member functions, they must
  * have global scope for OpenGL to see them.
@@ -102,7 +104,7 @@ void drawCallback();
 /************************************************************************
  * KEY DOWN CALLBACK
  * When a key on the keyboard has been pressed, we need to pass that
- * on to the client.  Currently, we are only registering the arrow keys
+ * on to the client.  Currnetly, we are only registering the arrow keys
  *************************************************************************/
 void keyDownCallback(int key, int x, int y);
 

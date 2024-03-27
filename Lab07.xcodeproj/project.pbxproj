@@ -11,11 +11,13 @@
 		C18A025027330881004537C6 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18A024727330880004537C6 /* test.cpp */; };
 		C18A025127330881004537C6 /* uiInteract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18A024827330880004537C6 /* uiInteract.cpp */; };
 		C18A025227330881004537C6 /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18A024A27330881004537C6 /* uiDraw.cpp */; };
-		C18A025327330881004537C6 /* Lab07.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18A024B27330881004537C6 /* Lab07.cpp */; };
 		C18A025427330881004537C6 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C18A024E27330881004537C6 /* position.cpp */; };
 		C18A0258273308A4004537C6 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18A0256273308A4004537C6 /* GLUT.framework */; };
 		C18A0259273308A4004537C6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18A0257273308A4004537C6 /* OpenGL.framework */; };
 		F0A177122BA268290021BC28 /* physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0A177102BA268260021BC28 /* physics.cpp */; };
+		F0A1778C2BB46EC90021BC28 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0A177842BB46EC20021BC28 /* main.cpp */; };
+		F0A1778D2BB46ECE0021BC28 /* projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0A177892BB46EC30021BC28 /* projectile.cpp */; };
+		F0A1778E2BB46ED10021BC28 /* simulation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0A1778B2BB46EC30021BC28 /* simulation.cpp */; };
 		F0DEE6182B87BED900540F8A /* prototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0DEE60C2B872E5F00540F8A /* prototype.cpp */; };
 		F0DEE6192B87BEFE00540F8A /* velocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0DEE60E2B872E5F00540F8A /* velocity.cpp */; };
 		F0DEE61A2B87BF0900540F8A /* angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0DEE60F2B872E5F00540F8A /* angle.cpp */; };
@@ -44,7 +46,6 @@
 		C18A024827330880004537C6 /* uiInteract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uiInteract.cpp; sourceTree = "<group>"; };
 		C18A024927330880004537C6 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		C18A024A27330881004537C6 /* uiDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uiDraw.cpp; sourceTree = "<group>"; };
-		C18A024B27330881004537C6 /* Lab07.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lab07.cpp; sourceTree = "<group>"; };
 		C18A024C27330881004537C6 /* uiDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiDraw.h; sourceTree = "<group>"; };
 		C18A024D27330881004537C6 /* uiInteract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiInteract.h; sourceTree = "<group>"; };
 		C18A024E27330881004537C6 /* position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
@@ -58,6 +59,14 @@
 		F0A1770F2BA268260021BC28 /* testPhysics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testPhysics.h; sourceTree = "<group>"; };
 		F0A177102BA268260021BC28 /* physics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = physics.cpp; sourceTree = "<group>"; };
 		F0A177112BA268260021BC28 /* physics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = physics.h; sourceTree = "<group>"; };
+		F0A177842BB46EC20021BC28 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F0A177852BB46EC20021BC28 /* testHowitzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testHowitzer.h; sourceTree = "<group>"; };
+		F0A177862BB46EC20021BC28 /* howitzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = howitzer.h; sourceTree = "<group>"; };
+		F0A177872BB46EC20021BC28 /* simulation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = simulation.h; sourceTree = "<group>"; };
+		F0A177882BB46EC20021BC28 /* projectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projectile.h; sourceTree = "<group>"; };
+		F0A177892BB46EC30021BC28 /* projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = projectile.cpp; sourceTree = "<group>"; };
+		F0A1778A2BB46EC30021BC28 /* testProjectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testProjectile.h; sourceTree = "<group>"; };
+		F0A1778B2BB46EC30021BC28 /* simulation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simulation.cpp; sourceTree = "<group>"; };
 		F0DEE60B2B872E5F00540F8A /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
 		F0DEE60C2B872E5F00540F8A /* prototype.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = prototype.cpp; sourceTree = "<group>"; };
 		F0DEE60D2B872E5F00540F8A /* prototype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prototype.h; sourceTree = "<group>"; };
@@ -88,6 +97,14 @@
 		C18A023027330832004537C6 = {
 			isa = PBXGroup;
 			children = (
+				F0A177862BB46EC20021BC28 /* howitzer.h */,
+				F0A177842BB46EC20021BC28 /* main.cpp */,
+				F0A177892BB46EC30021BC28 /* projectile.cpp */,
+				F0A177882BB46EC20021BC28 /* projectile.h */,
+				F0A1778B2BB46EC30021BC28 /* simulation.cpp */,
+				F0A177872BB46EC20021BC28 /* simulation.h */,
+				F0A177852BB46EC20021BC28 /* testHowitzer.h */,
+				F0A1778A2BB46EC30021BC28 /* testProjectile.h */,
 				F0A177102BA268260021BC28 /* physics.cpp */,
 				F0A177112BA268260021BC28 /* physics.h */,
 				F0A1770F2BA268260021BC28 /* testPhysics.h */,
@@ -110,7 +127,6 @@
 				C1B0EA5A27E22792004C9F71 /* testGround.h */,
 				C18A024327330880004537C6 /* ground.cpp */,
 				C18A024527330880004537C6 /* ground.h */,
-				C18A024B27330881004537C6 /* Lab07.cpp */,
 				C18A024E27330881004537C6 /* position.cpp */,
 				C18A024427330880004537C6 /* position.h */,
 				C18A024727330880004537C6 /* test.cpp */,
@@ -203,11 +219,13 @@
 				F0A177122BA268290021BC28 /* physics.cpp in Sources */,
 				F0DEE61B2B87BF0D00540F8A /* acceleration.cpp in Sources */,
 				C18A025027330881004537C6 /* test.cpp in Sources */,
+				F0A1778D2BB46ECE0021BC28 /* projectile.cpp in Sources */,
+				F0A1778C2BB46EC90021BC28 /* main.cpp in Sources */,
+				F0A1778E2BB46ED10021BC28 /* simulation.cpp in Sources */,
 				F0DEE61A2B87BF0900540F8A /* angle.cpp in Sources */,
 				C18A025427330881004537C6 /* position.cpp in Sources */,
 				F0DEE6182B87BED900540F8A /* prototype.cpp in Sources */,
 				F0DEE6192B87BEFE00540F8A /* velocity.cpp in Sources */,
-				C18A025327330881004537C6 /* Lab07.cpp in Sources */,
 				C18A025127330881004537C6 /* uiInteract.cpp in Sources */,
 				C18A025227330881004537C6 /* uiDraw.cpp in Sources */,
 			);
