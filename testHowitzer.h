@@ -65,7 +65,14 @@ private:
      *********************************************/
    void defaultConstructor()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
+      // setup/excersize
+      Howitzer h;
+      // verify
+      assertEquals(827,h.muzzleVelocity);
+      assertEquals(0.785398, h.elevation.radians);
+      
+      
+      
    }
 
    /*****************************************************************

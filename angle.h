@@ -16,6 +16,7 @@
 class TestAngle;
 class TestAcceleration;
 class TestVelocity;
+class TestHowitzer;
  /************************************
   * ANGLE
   ************************************/
@@ -25,6 +26,7 @@ class Angle
    friend TestAngle;
    friend TestAcceleration;
    friend TestVelocity;
+   friend TestHowitzer;
 private:
    //atributes:
    double radians;   // 360 degrees equals 2 PI radians
