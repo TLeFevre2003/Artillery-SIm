@@ -9,6 +9,7 @@
 
 #pragma once
 #include "position.h"
+#include "projectile.h"
 
 
  /*********************************************
@@ -17,7 +18,10 @@
   *********************************************/
 class Simulator
 {
+   friend TestHowitzer;
 public:
    Simulator(const Position & posUpperRight) {}
 
+private:
+   std::list<Projectile> liveRounds;
 };

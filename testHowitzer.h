@@ -496,6 +496,19 @@ private:
    void fire_right()
    {
       assertUnit(NOT_YET_IMPLEMENTED);
+      // setup
+      Howitzer h;
+      h.elevation.radians = 1.5708;
+      h.position.x = 111;
+      // exercise
+      h.rotate(-12.7663706144);
+      // verify
+      assertEquals(h.elevation.radians, 6.18318);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
+   }  // teardown
    }
 
    /*********************************************

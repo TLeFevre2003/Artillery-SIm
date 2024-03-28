@@ -33,15 +33,16 @@ public:
    friend ::TestProjectile;
    friend ::TestHowitzer;
    // create a new projectile with the default settings
-   Projectile() : mass(-99.9), radius(-99.9) {}
+   Projectile() : mass(DEFAULT_PROJECTILE_WEIGHT), radius(DEFAULT_PROJECTILE_RADIUS) {}
 
-
+   // ask brother helfrich about a deconstructor
 
    // advance the round forward until the next unit of time
    void advance(double simulationTime) {}
 
+   
 
-
+   
 
 private:
 

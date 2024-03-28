@@ -58,29 +58,15 @@ private:
     *********************************************/
    void defaultConstructor()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup/exercise
+      Projectile p;
+      // verify
+      assertEquals(p.mass,46.7);
+      assertEquals(p.radius, 0.077545);
+      assert(p.flightPath.empty());
+   } // teardown
 
-   /*********************************************
-    * name:    RESET from empty
-    * input:   mass=-99, radius=-99, flightPath={}
-    * output:  mass=46.7, radius=0.077545 flightPath={}
-    *********************************************/
-   void reset_empty()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
-   /*********************************************
-    * name:    RESET with a non-zero flight path
-    * input:   mass=-99, radius=-99, flightPath={0,1,2}
-    * output:  mass=46.7, radius=0.077545 flightPath={}
-    *********************************************/
-   void reset_full()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
+   // we chose not to use the reset function because it doesn't make since for our design.
    /*****************************************************************
     *****************************************************************
     * ADVANCE
