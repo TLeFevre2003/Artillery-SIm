@@ -273,6 +273,9 @@ private:
       // verify
       assert(0 <= h.position.x && h.position.x <= 900);
       assertEquals(h.position.y, 0);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0.785398, h.elevation.radians);
    } // teardown
 
    /*********************************************
@@ -289,6 +292,10 @@ private:
       h.raise(-0.1);
       // verify
       assertEquals(h.elevation.radians, 0.6);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    } // teardown
 
    /*********************************************
@@ -305,6 +312,10 @@ private:
       h.raise(0.1);
       // verify
       assertEquals(h.elevation.radians, 0.4);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    } // teardown
 
    /*********************************************
@@ -321,6 +332,10 @@ private:
       h.raise(-0.1);
       // verify
       assertEquals(h.elevation.radians, 5.683185);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    } // teardown
 
    /*********************************************
@@ -337,6 +352,10 @@ private:
       h.raise(0.1);
       // verify
       assertEquals(h.elevation.radians, 5.883185);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    }  // teardown
 
    /*********************************************
@@ -353,6 +372,10 @@ private:
       h.rotate(.3);
       // verify
       assertEquals(h.elevation.radians, 1.53);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    }  // teardown
 
    /*********************************************
@@ -369,6 +392,10 @@ private:
       h.rotate(-.3);
       // verify
       assertEquals(h.elevation.radians, 0.93);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    }  // teardown
 
    /*********************************************
@@ -385,6 +412,10 @@ private:
       h.rotate(.2);
       // verify
       assertEquals(h.elevation.radians, 0.016814693);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    }  // teardown
 
    /*********************************************
@@ -401,6 +432,10 @@ private:
       h.rotate(-12.7663706144);
       // verify
       assertEquals(h.elevation.radians, 6.18318);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    }  // teardown
 
    /*****************************************************************
