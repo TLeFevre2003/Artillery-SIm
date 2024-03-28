@@ -250,8 +250,20 @@ private:
      *********************************************/
    void generatePosition_small()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      Howitzer h;
+      h.position.x = -99.99;
+      h.position.y = -99.99;
+      Position p;
+      p.x = 10;
+      p.y = 10;
+      p.metersFromPixels = 1;
+      // exercise
+      h.generatePosition(p);
+      // verify
+      assert(0 <= h.position.x && h.position.x <= 9);
+      assertEquals(h.position.y, 0);
+   } // teardown
 
     /*********************************************
     * name:    GENERATE POSITION large board
