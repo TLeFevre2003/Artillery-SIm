@@ -29,9 +29,6 @@ public:
       defaultConstructor();
       reset_empty();
       reset_full();
-      fire_right();
-      fire_left();
-      fire_up();
 
       // Ticket 4: Advance
       advance_nothing();
@@ -80,43 +77,6 @@ private:
     * output:  mass=46.7, radius=0.077545 flightPath={}
     *********************************************/
    void reset_full()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
-
-   /*****************************************************************
-    *****************************************************************
-    * FIRE
-    *****************************************************************
-    *****************************************************************/  
-
-   /*********************************************
-    * name:    FIRE horizontally right
-    * input:   angle=90  pos=(111,222) muzzleVelocity=100
-    * output:  flightPath={pos=111,222 v=100,0 t=1}
-    *********************************************/
-   void fire_right()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
-   /*********************************************
-    * name:    FIRE horizontally left
-    * input:   angle=-90  pos=(111,222) muzzleVelocity=100
-    * output:  flightPath={pos=111,222 v=-100,0 t=1}
-    *********************************************/
-   void fire_left()
-   {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
-
-   /*********************************************
-    * name:    FIRE straight up
-    * input:   angle=0  pos=(111,222) muzzleVelocity=100
-    * output:  flightPath={pos=111,222 v=0,100 t=1}
-    *********************************************/
-   void fire_up()
    {
       assertUnit(NOT_YET_IMPLEMENTED);
    }
