@@ -45,6 +45,12 @@ public:
       rotate_counterClock();
       rotate_wrapClock();
       rotate_wrapCounterClock();
+      
+      
+      // Ticket 3: Projectile Setup
+      fire_right();
+      fire_left();
+      fire_up();
 
       report("Howitzer");
    }
@@ -474,4 +480,43 @@ private:
       Position p;
       p.metersFromPixels = metersFromPixels;
    }
+   
+   
+   /*****************************************************************
+    *****************************************************************
+    * FIRE
+    *****************************************************************
+    *****************************************************************/
+
+   /*********************************************
+    * name:    FIRE horizontally right
+    * input:   angle=90  pos=(111,222) muzzleVelocity=100
+    * output:  flightPath={pos=111,222 v=100,0 t=1}
+    *********************************************/
+   void fire_right()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    FIRE horizontally left
+    * input:   angle=-90  pos=(111,222) muzzleVelocity=100
+    * output:  flightPath={pos=111,222 v=-100,0 t=1}
+    *********************************************/
+   void fire_left()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+
+   /*********************************************
+    * name:    FIRE straight up
+    * input:   angle=0  pos=(111,222) muzzleVelocity=100
+    * output:  flightPath={pos=111,222 v=0,100 t=1}
+    *********************************************/
+   void fire_up()
+   {
+      assertUnit(NOT_YET_IMPLEMENTED);
+   }
+   
+   
 };
