@@ -263,6 +263,9 @@ private:
       // verify
       assert(0 <= h.position.x && h.position.x <= 9);
       assertEquals(h.position.y, 0);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0.785398, h.elevation.radians);
    } // teardown
 
     /*********************************************
