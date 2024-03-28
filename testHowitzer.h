@@ -99,6 +99,11 @@ private:
       // verify
       assertEquals(0, x);
       assertEquals(0, y);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0.785398, h.elevation.radians);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    } // teardown
 
    /*********************************************
@@ -120,6 +125,11 @@ private:
       // verify
       assertEquals(123.4, x);
       assertEquals(567.8, y);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0.785398, h.elevation.radians);
+      assertEquals(123.4, h.position.x);
+      assertEquals(567.8, h.position.y);
    } // teardown
 
    /*********************************************
@@ -137,6 +147,11 @@ private:
       v = h.getMuzzleVelocity();
       // verify
       assertEquals(v, 24.68);
+
+      assertEquals(24.68, h.muzzleVelocity);
+      assertEquals(0.785398, h.elevation.radians);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    }
 
    /*********************************************
@@ -154,6 +169,11 @@ private:
       v = h.getMuzzleVelocity();
       // verify
       assertEquals(v, 827.00);
+
+      assertEquals(827.00, h.muzzleVelocity);
+      assertEquals(0.785398, h.elevation.radians);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    } // teardown
 
    /*********************************************
@@ -188,6 +208,11 @@ private:
       ang = h.getElevation().radians;
       // verify
       assertEquals(0.4, ang);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(0.4, h.elevation.radians);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    } // teardown
 
    /*********************************************
@@ -205,6 +230,11 @@ private:
       ang = h.getElevation().radians;
       // verify
       assertEquals(5.8, ang);
+
+      assertEquals(827, h.muzzleVelocity);
+      assertEquals(5.8, h.elevation.radians);
+      assertEquals(0, h.position.x);
+      assertEquals(0, h.position.y);
    } // teardown
 
    /*****************************************************************

@@ -6,7 +6,7 @@
  * Summary:
  *    Simulate firing the M777 howitzer 15mm artillery piece
  ************************************************************************/
-
+#pragma once
 #include <cassert>      // for ASSERT
 #include "uiInteract.h" // for INTERFACE
 #include "uiDraw.h"     // for RANDOM and DRAW*
@@ -23,6 +23,7 @@ using namespace std;
  * engine will wait until the proper amount of
  * time has passed and put the drawing on the screen.
  **************************************/
+
 void callBack(const Interface* pUI, void* p)
 {
    // the first step is to cast the void pointer into a simulator object. This
@@ -40,7 +41,7 @@ double Position::metersFromPixels = 40.0;
 /*********************************
  * Initialize the simulation and set it in motion
  *********************************/
-#ifdef _WIN32
+#ifdef _WIN32_X
 #include <windows.h>
 int WINAPI wWinMain(
    _In_ HINSTANCE hInstance,
@@ -54,7 +55,7 @@ int main(int argc, char** argv)
    // unit tests
    testRunner();
   
-   // Initialize OpenGL
+   //// Initialize OpenGL
    Position posUpperRight;
    posUpperRight.setZoom(40.0 /* 40 meters equals 1 pixel */);
    posUpperRight.setPixelsX(700.0);
