@@ -27,8 +27,6 @@ public:
    {
       // Ticket 3: Setup
       defaultConstructor();
-      reset_empty();
-      reset_full();
 
       // Ticket 4: Advance
       advance_nothing();

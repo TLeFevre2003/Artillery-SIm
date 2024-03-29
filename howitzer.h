@@ -15,7 +15,7 @@
 #include "velocity.h"
 #include "physics.h"
 #include "uiDraw.h"
-
+#include "projectile.h"
 
 #pragma once
 
@@ -71,6 +71,13 @@ class Howitzer
 
       // get the elevation
       const Angle & getElevation() const { return elevation; }
+   
+      // fires a projectile
+      void fire(list<Projectile> & liveRounds)
+      {
+         Projectile newRound(elevation, muzzleVelocity);
+         liveRounds.push_back(newRound);
+      }
 
    private:
       Position position;      // initial position of the projectile

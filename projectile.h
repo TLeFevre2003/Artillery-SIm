@@ -14,6 +14,7 @@
 #include "velocity.h"
 #include "physics.h"
 #include "uiDraw.h"
+#include "angle.h"
 
 #define DEFAULT_PROJECTILE_WEIGHT 46.7       // kg
 #define DEFAULT_PROJECTILE_RADIUS 0.077545   // m
@@ -34,11 +35,12 @@ public:
    friend ::TestHowitzer;
    // create a new projectile with the default settings
    Projectile() : mass(DEFAULT_PROJECTILE_WEIGHT), radius(DEFAULT_PROJECTILE_RADIUS) {}
+   Projectile(Angle angle, double muzzleVelocity) {}
 
-   // ask brother helfrich about a deconstructor
 
    // advance the round forward until the next unit of time
    void advance(double simulationTime) {}
+
 
    
 
