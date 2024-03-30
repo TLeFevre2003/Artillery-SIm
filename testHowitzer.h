@@ -50,7 +50,7 @@ public:
       // Ticket 3: Projectile Setup
       fire_right();
       fire_left();
-//      fire_up();
+      fire_up();
 
       report("Howitzer");
    }
@@ -598,7 +598,7 @@ private:
       assert(testLiveRounds.front().flightPath.front().pos.y == 222);
       
       assertEquals(testLiveRounds.front().flightPath.front().v.dx, 0);
-      assertEquals(testLiveRounds.front().flightPath.front().v.dy, 1100);
+      assertEquals(testLiveRounds.front().flightPath.front().v.dy, 100);
       
       assert(testLiveRounds.front().flightPath.front().t == 1);
    }  // teardown
