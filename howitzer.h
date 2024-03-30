@@ -73,9 +73,9 @@ class Howitzer
       const Angle & getElevation() const { return elevation; }
    
       // fires a projectile
-      void fire(list<Projectile> & liveRounds)
+      void fire(list<Projectile> & liveRounds, Position pos)
       {
-         Projectile newRound(elevation, muzzleVelocity);
+         Projectile newRound(elevation, muzzleVelocity, pos);
          liveRounds.push_back(newRound);
       }
 

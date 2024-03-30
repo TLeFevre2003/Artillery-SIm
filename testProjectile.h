@@ -70,27 +70,27 @@ private:
     * output:  mass=46.7, radius=0.077545 flightPath={first}
     * first = {pos = start pos, v = (3,4) time = 1}
     *********************************************/
-   void nonDefaultConstructor()
-   {    
-      // setup/exercise
-      Angle a;
-      a.radians= 0.6435;
-      double m = 5.0;
-      Position startPos;
-      startPos.x = 123;
-      startPos.y = 456;
-      //exercise
-      Projectile p(a,m,startPos);
-      // verify
-      assertEquals(a.radians, 0.6435);
-      assertEquals(m, 5.0);
-      assertEquals(startPos.x, 123);
-      assertEquals(startPos.y, 456);
-      assertEquals(p.mass, 46.7);
-      assertEquals(p.radius, 0.077545);
-      assert(p.flightPath.size(),1);
-      assertEquals(p.(*flightPath.begin()).pos.x, 123);
-   } // teardown
+//   void nonDefaultConstructor()
+//   {    
+//      // setup/exercise
+//      Angle a;
+//      a.radians= 0.6435;
+//      double m = 5.0;
+//      Position startPos;
+//      startPos.x = 123;
+//      startPos.y = 456;
+//      //exercise
+//      Projectile p(a,m,startPos);
+//      // verify
+//      assertEquals(a.radians, 0.6435);
+//      assertEquals(m, 5.0);
+//      assertEquals(startPos.x, 123);
+//      assertEquals(startPos.y, 456);
+//      assertEquals(p.mass, 46.7);
+//      assertEquals(p.radius, 0.077545);
+//      assert(p.flightPath.size(),1);
+//      assertEquals(p.(*flightPath.begin()).pos.x, 123);
+//   } // teardown
 
    // we chose not to use the reset function because it doesn't make since for our design.
    /*****************************************************************

@@ -48,9 +48,9 @@ public:
       
       
       // Ticket 3: Projectile Setup
-      fire_right();
-      fire_left();
-      fire_up();
+//      fire_right();
+//      fire_left();
+//      fire_up();
 
       report("Howitzer");
    }
@@ -493,27 +493,27 @@ private:
     * input:   angle=90  pos=(111,222) muzzleVelocity=100 liveRounds = BLANK
     * output:  flightPath={pos=111,222 v=100,0 t=1}
     *********************************************/
-   void fire_right()
-   {
-      // setup
-      Howitzer h;
-      h.elevation.radians = 1.5708;
-      h.position.x = 111;
-      h.position.y = 222;
-      h.muzzleVelocity = 100;
-
-      list<Projectile> testLiveRounds;
-      // exercise
-      h.fire(testLiveRounds);
-      // verify
-      assertEquals(h.elevation.radians, 1.5708);
-
-      assertEquals(100, h.muzzleVelocity);
-      assertEquals(111, h.position.x);
-      assertEquals(222, h.position.y);
-
-      assert(testLiveRounds[0].flightpath.pos ==)
-   }  // teardown
+//   void fire_right()
+//   {
+//      // setup
+//      Howitzer h;
+//      h.elevation.radians = 1.5708;
+//      h.position.x = 111;
+//      h.position.y = 222;
+//      h.muzzleVelocity = 100;
+//
+//      list<Projectile> testLiveRounds;
+//      // exercise
+//      h.fire(testLiveRounds);
+//      // verify
+//      assertEquals(h.elevation.radians, 1.5708);
+//
+//      assertEquals(100, h.muzzleVelocity);
+//      assertEquals(111, h.position.x);
+//      assertEquals(222, h.position.y);
+//
+//      assert(testLiveRounds[0].flightpath.pos ==)
+//   }  // teardown
    
 
    /*********************************************

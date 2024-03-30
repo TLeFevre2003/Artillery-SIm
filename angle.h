@@ -17,7 +17,7 @@ class TestAngle;
 class TestAcceleration;
 class TestVelocity;
 class TestHowitzer;
-class TestProjetile;
+class TestProjectile;
  /************************************
   * ANGLE
   ************************************/
