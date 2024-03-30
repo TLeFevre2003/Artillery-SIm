@@ -148,6 +148,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.muzzleVelocity = 24.68;
       double v = -99.99;
       // exercise
@@ -170,6 +172,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.muzzleVelocity = 827.00;
       double v = -99.99;
       // exercise
@@ -209,6 +213,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = 0.4;
       double ang = -99.99;
       // exercise
@@ -231,6 +237,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = 5.8;
       double ang = -99.99;
       // exercise
@@ -309,6 +317,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = 0.5;
       // exercize
       h.raise(-0.1);
@@ -329,6 +339,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = 0.5;
       // exercize
       h.raise(0.1);
@@ -349,6 +361,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = -0.5;
       // exercize
       h.raise(-0.1);
@@ -369,6 +383,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = -0.5;
       // exercize
       h.raise(0.1);
@@ -389,6 +405,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = 1.23;
       // exercise
       h.rotate(.3);
@@ -409,6 +427,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = 1.23;
       // exercise
       h.rotate(-.3);
@@ -429,6 +449,8 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = 6.1;
       // exercise
       h.rotate(.2);
@@ -449,12 +471,13 @@ private:
    {
       // setup
       Howitzer h;
+      h.position.x = 0;
+      h.position.y = 0;
       h.elevation.radians = 0.1;
       // exercise
       h.rotate(-12.7663706144);
       // verify
       assertEquals(h.elevation.radians, 6.18318);
-
       assertEquals(827, h.muzzleVelocity);
       assertEquals(0, h.position.x);
       assertEquals(0, h.position.y);
@@ -589,7 +612,6 @@ private:
       h.fire(testLiveRounds,time);
       // verify
       assertEquals(h.elevation.radians, 0);
-
       assertEquals(100, h.muzzleVelocity);
       assertEquals(111, h.position.x);
       assertEquals(222, h.position.y);

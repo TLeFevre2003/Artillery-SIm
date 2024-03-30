@@ -52,9 +52,15 @@ class Howitzer
       void generatePosition(const Position& posUpperRight)
       {
          double xPixels = random(posUpperRight.getPixelsX() * 0.1,
-            posUpperRight.getPixelsX() * 0.9);
+                                 posUpperRight.getPixelsX() * 0.9);
          position.setPixelsX(xPixels);
          position.setPixelsY(0);
+      }
+   
+      // draws the howitzer
+      void draw(ogstream & gout) const
+      {
+         gout.drawHowitzer(position, elevation.getRadians(), timeSinceLastFire);
       }
 
       // get the muzzle velocity
@@ -73,17 +79,21 @@ class Howitzer
       const Angle & getElevation() const { return elevation; }
    
       // fires a projectile
-      void fire(list<Projectile> & liveRounds, double startTime)
+      void fire(std::list<Projectile> & liveRounds, double startTime)
       {
          // Create projectile
          Projectile newRound(elevation, muzzleVelocity, position, startTime);
          // Push Projectile to liveRounds
          liveRounds.push_back(newRound);
+         // set time since fired to 0
+         timeSinceLastFire = 0;
       }
+   
+   
 
    private:
       Position position;      // initial position of the projectile
       double muzzleVelocity;  // muzzle velocity, defaults to 827.0 m/s
       Angle elevation;        // the elevation of the howitzer where 0 is up and positive is right.
-      double timeSinceLastFire;// helps draw the muzzle flash.
+      double timeSinceLastFire = 99.99;// helps draw the muzzle flash.
 };

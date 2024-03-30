@@ -12,7 +12,12 @@
  #include "angle.h"
  using namespace std;
 
-Projectile::Projectile(Angle angle, double muzzleVelocity, Position startPos, double startTime) {
+
+/*********************************************
+ * PROJECTILE
+ *  Create the projectile from angle, velocity, position and start time
+ *********************************************/
+Projectile::Projectile(const Angle & angle, double muzzleVelocity,const Position & startPos, double startTime) {
     // Set mass and radius
     mass = DEFAULT_PROJECTILE_WEIGHT;
     radius = DEFAULT_PROJECTILE_RADIUS;
@@ -26,7 +31,10 @@ Projectile::Projectile(Angle angle, double muzzleVelocity, Position startPos, do
     flightPath.push_back(newPosVelocityTime);
 }
 
-
+/*********************************************
+ * PROJECTILE: ADVANCE
+ * Move the projectile for a given amount of time
+ *********************************************/
 void Projectile::advance(double simulationTime)
 {
    // find altitude

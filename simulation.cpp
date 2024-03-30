@@ -8,3 +8,14 @@
  ************************************************************************/
 
  #include "simulation.h"  // for SIMULATION
+
+/*********************************************
+ * SIMULATOR: DRAW
+ * Draws the Howitzer and ground
+ *********************************************/
+void Simulator::draw(ogstream & gout) const
+{
+   
+   ground.draw(gout);
+   howitzer.draw(gout);
+}
