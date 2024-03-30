@@ -138,7 +138,12 @@ double speedSoundFromAltitude(double altitude)
       {20000.0, 295.0},
       {25000.0, 295.0},
       {30000.0, 305.0},
-      {40000.0, 324.0}
+      {40000.0, 324.0},
+      {50000.0,   337.0},
+      {60000.0,   319.0},
+      {70000.0,   289.0},
+      {80000.0,   269.0}
+
    };
    return linearInterpolation(mapping, 16, altitude);
 }

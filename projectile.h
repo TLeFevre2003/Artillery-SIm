@@ -34,7 +34,7 @@ public:
    friend ::TestHowitzer;
    // create a new projectile with the default settings
    Projectile() : mass(DEFAULT_PROJECTILE_WEIGHT), radius(DEFAULT_PROJECTILE_RADIUS) {}
-   Projectile(Angle angle, double muzzleVelocity, Position startPos);
+   Projectile(Angle angle, double muzzleVelocity, Position startPos, double startTime);
    
 
 

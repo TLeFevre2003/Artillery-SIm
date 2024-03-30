@@ -502,11 +502,12 @@ private:
       h.position.x = 111;
       h.position.y = 222;
       h.muzzleVelocity = 100;
+      double time = 1;
 
       list<Projectile> testLiveRounds;
       
       // exercise
-      h.fire(testLiveRounds);
+      h.fire(testLiveRounds, time);
       // verify
       assertEquals(h.elevation.radians, 1.5708);
 
@@ -541,11 +542,12 @@ private:
       h.position.x = 111;
       h.position.y = 222;
       h.muzzleVelocity = 100;
+      double time = 1;
 
       list<Projectile> testLiveRounds;
       
       // exercise
-      h.fire(testLiveRounds);
+      h.fire(testLiveRounds,time);
       // verify
       assertEquals(h.elevation.radians, -1.5708);
 
@@ -579,11 +581,12 @@ private:
       h.position.x = 111;
       h.position.y = 222;
       h.muzzleVelocity = 100;
+      double time = 1;
 
       list<Projectile> testLiveRounds;
       
       // exercise
-      h.fire(testLiveRounds);
+      h.fire(testLiveRounds,time);
       // verify
       assertEquals(h.elevation.radians, 0);
 
@@ -617,12 +620,13 @@ private:
       h.position.x = 111;
       h.position.y = 222;
       h.muzzleVelocity = 100;
+      double time = 1;
 
       list<Projectile> testLiveRounds;
       
       // exercise
-      h.fire(testLiveRounds);
-      h.fire(testLiveRounds);
+      h.fire(testLiveRounds,time);
+      h.fire(testLiveRounds,time+1);
       // verify
       assertEquals(h.elevation.radians, 0);
 
@@ -650,7 +654,7 @@ private:
       assertEquals(testLiveRounds.back().flightPath.front().v.dx, 0);
       assertEquals(testLiveRounds.back().flightPath.front().v.dy, 100);
       
-      assert(testLiveRounds.back().flightPath.front().t == 1);
+      assert(testLiveRounds.back().flightPath.front().t == 2);
    }  // teardown
    
 };

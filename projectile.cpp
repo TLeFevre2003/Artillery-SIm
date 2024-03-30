@@ -12,7 +12,7 @@
  #include "angle.h"
  using namespace std;
 
-Projectile::Projectile(Angle angle, double muzzleVelocity, Position startPos) {
+Projectile::Projectile(Angle angle, double muzzleVelocity, Position startPos, double startTime) {
     // Set mass and radius
     mass = DEFAULT_PROJECTILE_WEIGHT;
     radius = DEFAULT_PROJECTILE_RADIUS;
@@ -22,40 +22,46 @@ Projectile::Projectile(Angle angle, double muzzleVelocity, Position startPos) {
     v.set(angle, muzzleVelocity);
     
     // create The struct and push it on the list
-    PositionVelocityTime newPosVelocityTime = {startPos, v, 1};
+    PositionVelocityTime newPosVelocityTime = {startPos, v, startTime};
     flightPath.push_back(newPosVelocityTime);
 }
 
 
 void Projectile::advance(double simulationTime)
 {
+   // find altitude
    double altitude = flightPath.back().pos.getMetersY();
    
+   // calculate necessary values
    double airDensity = densityFromAltitude(altitude);
    double speedofSound = speedSoundFromAltitude(altitude);
-   
    double dragCoefficient = dragFromMach(speedOfSoundToMach(flightPath.back().v, speedofSound));
-   double gravity = gravityFromAltitude(altitude);
+   double gravity = -1.0 *  gravityFromAltitude(altitude);
    
+   // Find the angle of projectile
    Angle a;
    a.setDxDy(flightPath.back().v.getDX(), flightPath.back().v.getDY());
    
+   // Calculate the acceleration of the projectile
    double dragForce = forceFromDrag(airDensity, dragCoefficient, radius, flightPath.back().v.getSpeed());
-   double dragAcceleration = dragForce / mass;
-   
+   double dragAcceleration = -1*(dragForce / mass);
    Acceleration projectileAcceleration;
    projectileAcceleration.set(a,dragAcceleration);
-   
    projectileAcceleration.addDDY(gravity);
    
+   // Create the velocity
    Velocity newVelocity;
    newVelocity.setDX(flightPath.back().v.getDX());
    newVelocity.setDY(flightPath.back().v.getDY());
-   newVelocity.add(projectileAcceleration, simulationTime);
    
+   // Find the new position
    Position newPosition(flightPath.back().pos);
-   newPosition.add(projectileAcceleration, newVelocity, simulationTime);
+   newPosition.add(projectileAcceleration, newVelocity, simulationTime-flightPath.back().t);
    
-   PositionVelocityTime newPosVelocityTime = {newPosition, newVelocity, flightPath.back().t+simulationTime};
+   // Update the velocity with current acceleration
+   newVelocity.add(projectileAcceleration, simulationTime-flightPath.back().t);
+
+   // Add new PositionVelocityTime to the flightPath
+   PositionVelocityTime newPosVelocityTime = {newPosition, newVelocity, simulationTime};
    flightPath.push_back(newPosVelocityTime);
 }

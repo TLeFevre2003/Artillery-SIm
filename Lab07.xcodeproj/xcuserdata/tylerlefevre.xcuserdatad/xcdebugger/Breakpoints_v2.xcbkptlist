@@ -200,8 +200,8 @@
             filePath = "testHowitzer.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "525"
-            endingLineNumber = "525"
+            startingLineNumber = "526"
+            endingLineNumber = "526"
             landmarkName = "fire_right()"
             landmarkType = "7">
             <Locations>
@@ -248,8 +248,8 @@
             filePath = "testHowitzer.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "511"
-            endingLineNumber = "511"
+            startingLineNumber = "512"
+            endingLineNumber = "512"
             landmarkName = "fire_right()"
             landmarkType = "7">
          </BreakpointContent>
@@ -264,8 +264,8 @@
             filePath = "testHowitzer.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "509"
-            endingLineNumber = "509"
+            startingLineNumber = "510"
+            endingLineNumber = "510"
             landmarkName = "fire_right()"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,7 +282,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
             endingLineNumber = "76"
-            landmarkName = "fire(liveRounds)"
+            landmarkName = "fire(liveRounds, startTime)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -312,8 +312,8 @@
             filePath = "testHowitzer.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "521"
-            endingLineNumber = "521"
+            startingLineNumber = "522"
+            endingLineNumber = "522"
             landmarkName = "fire_right()"
             landmarkType = "7">
          </BreakpointContent>
@@ -328,8 +328,8 @@
             filePath = "testHowitzer.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
+            startingLineNumber = "521"
+            endingLineNumber = "521"
             landmarkName = "fire_right()"
             landmarkType = "7">
          </BreakpointContent>
@@ -344,8 +344,8 @@
             filePath = "testHowitzer.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
             landmarkName = "fire_right()"
             landmarkType = "7">
          </BreakpointContent>
@@ -360,8 +360,8 @@
             filePath = "testHowitzer.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "602"
-            endingLineNumber = "602"
+            startingLineNumber = "605"
+            endingLineNumber = "605"
             landmarkName = "fire_up()"
             landmarkType = "7">
          </BreakpointContent>
@@ -370,15 +370,47 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0E1539C6-D19C-40CA-B6B2-5697F2783AFC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testProjectile.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "advance_diagonalDown()"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
+            landmarkName = "teardownStandardFixture()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F6118F6-D97F-4B79-AB43-CED566316A3E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testProjectile.h"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "teardownStandardFixture()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0960DB8E-A237-4647-8363-8489F9A522C0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testProjectile.h"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "advance_up()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
