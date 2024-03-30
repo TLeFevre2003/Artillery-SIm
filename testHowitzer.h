@@ -49,7 +49,7 @@ public:
       
       // Ticket 3: Projectile Setup
       fire_right();
-//      fire_left();
+      fire_left();
 //      fire_up();
 
       report("Howitzer");
@@ -534,8 +534,36 @@ private:
     *********************************************/
    void fire_left()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      Howitzer h;
+      h.elevation.radians = -1.5708;
+      h.position.x = 111;
+      h.position.y = 222;
+      h.muzzleVelocity = 100;
+
+      list<Projectile> testLiveRounds;
+      
+      // exercise
+      h.fire(testLiveRounds);
+      // verify
+      assertEquals(h.elevation.radians, -1.5708);
+
+      assertEquals(100, h.muzzleVelocity);
+      assertEquals(111, h.position.x);
+      assertEquals(222, h.position.y);
+      
+      assertEquals(testLiveRounds.front().radius, 0.077545);
+      assertEquals(testLiveRounds.front().mass, 46.7);
+      
+      
+      assert(testLiveRounds.front().flightPath.front().pos.x == 111);
+      assert(testLiveRounds.front().flightPath.front().pos.y == 222);
+      
+      assertEquals(testLiveRounds.front().flightPath.front().v.dx, -100);
+      assertEquals(testLiveRounds.front().flightPath.front().v.dy, 0);
+      
+      assert(testLiveRounds.front().flightPath.front().t == 1);
+   }  // teardown
 
    /*********************************************
     * name:    FIRE straight up
@@ -544,8 +572,36 @@ private:
     *********************************************/
    void fire_up()
    {
-      assertUnit(NOT_YET_IMPLEMENTED);
-   }
+      // setup
+      Howitzer h;
+      h.elevation.radians = 0;
+      h.position.x = 111;
+      h.position.y = 222;
+      h.muzzleVelocity = 100;
+
+      list<Projectile> testLiveRounds;
+      
+      // exercise
+      h.fire(testLiveRounds);
+      // verify
+      assertEquals(h.elevation.radians, 0);
+
+      assertEquals(100, h.muzzleVelocity);
+      assertEquals(111, h.position.x);
+      assertEquals(222, h.position.y);
+      
+      assertEquals(testLiveRounds.front().radius, 0.077545);
+      assertEquals(testLiveRounds.front().mass, 46.7);
+      
+      
+      assert(testLiveRounds.front().flightPath.front().pos.x == 111);
+      assert(testLiveRounds.front().flightPath.front().pos.y == 222);
+      
+      assertEquals(testLiveRounds.front().flightPath.front().v.dx, 0);
+      assertEquals(testLiveRounds.front().flightPath.front().v.dy, 1100);
+      
+      assert(testLiveRounds.front().flightPath.front().t == 1);
+   }  // teardown
    
    
 };
