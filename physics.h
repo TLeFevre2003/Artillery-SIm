@@ -12,6 +12,7 @@
 #define _USE_MATH_DEFINES 
 #include <math.h>
 #include <cassert>  // for ASSERT 
+class Velocity;
 
  /*******************************************************
   * AREA FROM RADIUS
@@ -132,3 +133,4 @@ double speedSoundFromAltitude(double altitude);
  *********************************************************/
 double dragFromMach(double speedMach);
 
+double speedOfSoundToMach(const Velocity & v, double speedOfSound);

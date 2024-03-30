@@ -8,6 +8,7 @@
  ************************************************************************/
   
  #include "physics.h"  // for the prototypes
+ #include "velocity.h"
  
  /*********************************************************
  * LINEAR INTERPOLATION
@@ -172,3 +173,12 @@ double dragFromMach(double speedMach)
    return linearInterpolation(mapping, 17, speedMach);
 }
 
+/*******************************************************
+ * SPEED OF SOUND TO MACH
+ * input: VELOCITY, SPEED OF SOUND
+ * output: MACH = VELOCITY / SPEED OF SOUND
+ ********************************************************/
+double speedOfSoundToMach(const Velocity & v, double speedOfSound)
+{
+   return v.getSpeed() / speedOfSound;
+}

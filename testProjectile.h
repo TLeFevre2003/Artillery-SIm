@@ -30,7 +30,6 @@ public:
       nonDefaultConstructor();
 
       // Ticket 4: Advance
-      advance_nothing();
       advance_fall();
       advance_horizontal();
       advance_up();
@@ -106,6 +105,9 @@ private:
     * ADVANCE
     *****************************************************************
     *****************************************************************/ 
+   
+   // Because we implementing our projectiles in a list, we do not need advance nothing, because when no projectiles
+   // Are active, the liveRounds list will be empty.
 
    /*********************************************
        * name:    ADVANCE : the projectile is stationary and falls down
@@ -204,6 +206,8 @@ private:
          // teardown
          teardownStandardFixture();
       }
+   
+
 
    /*****************************************************************
     *****************************************************************

@@ -43,6 +43,7 @@ public:
    Angle()                 : radians(0)                          {}
    Angle(const Angle& rhs) : radians(rhs.radians)                {}
    Angle(double degrees)   : radians(convertToRadians(degrees))  {}
+   
 
    // Getters
    double getDegrees() const { return convertToDegrees(this->radians);}

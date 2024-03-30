@@ -107,6 +107,8 @@ public:
       dragFromMach_060();
       dragFromMach_010();
       dragFromMach_314();
+      
+      testSpeedToMach();
 
       report("Physics");
    }
@@ -1445,4 +1447,27 @@ private:
       assertEquals(drag, 0.2348);
    }  // teardown
 
+   /*******************************************************
+    * SPEED TO MACH
+    * input:  speed=10 velocity=(3,4)
+    * output: 0.5
+    ********************************************************/
+   void testSpeedToMach()
+   {
+      // setup
+      double speed = 10;
+      Velocity v;
+      v.dx = 3;
+      v.dy = 4;
+      double mach = 99.99;
+      
+      // exercise
+      mach = speedOfSoundToMach(v,speed);
+      
+      // verify
+      assertEquals(mach, .5);
+      assertEquals(v.dx, 3);
+      assertEquals(v.dy, 4);
+      
+   }
 };

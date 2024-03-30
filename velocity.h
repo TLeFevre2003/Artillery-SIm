@@ -17,11 +17,13 @@
 #pragma once
 #include "acceleration.h"
 
+
 class Angle;
 class Acceleration;
 class TestVelocity;
 class TestProjectile;
 class TestHowitzer;
+class TestPhysics;
 
  /*********************************************
   * Velocity
@@ -32,6 +34,7 @@ class Velocity
    friend TestProjectile;
    friend TestVelocity;
    friend TestHowitzer;
+   friend TestPhysics;
    
 public:
    // constructors
