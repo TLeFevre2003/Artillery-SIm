@@ -21,6 +21,7 @@ class Angle;
 class Acceleration;
 class TestVelocity;
 class TestProjectile;
+class TestHowitzer;
 
  /*********************************************
   * Velocity
@@ -30,6 +31,8 @@ class Velocity
 {
    friend TestProjectile;
    friend TestVelocity;
+   friend TestHowitzer;
+   
 public:
    // constructors
    Velocity()                     : dx(0.0), dy(0.0) { }

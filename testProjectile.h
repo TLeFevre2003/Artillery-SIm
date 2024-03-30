@@ -27,6 +27,7 @@ public:
    {
       // Ticket 3: Setup
       defaultConstructor();
+      nonDefaultConstructor();
 
       // Ticket 4: Advance
       advance_nothing();
@@ -68,29 +69,36 @@ private:
     * name:    NON DEFAULT CONSTRUCTOR
     * input:   angle = 0.6435, magnitude = 5, start pos = (123,465) 
     * output:  mass=46.7, radius=0.077545 flightPath={first}
-    * first = {pos = start pos, v = (3,4) time = 1}
+    * first = {pos = start pos, v = (3,4) t = 1}
     *********************************************/
-//   void nonDefaultConstructor()
-//   {    
-//      // setup/exercise
-//      Angle a;
-//      a.radians= 0.6435;
-//      double m = 5.0;
-//      Position startPos;
-//      startPos.x = 123;
-//      startPos.y = 456;
-//      //exercise
-//      Projectile p(a,m,startPos);
-//      // verify
-//      assertEquals(a.radians, 0.6435);
-//      assertEquals(m, 5.0);
-//      assertEquals(startPos.x, 123);
-//      assertEquals(startPos.y, 456);
-//      assertEquals(p.mass, 46.7);
-//      assertEquals(p.radius, 0.077545);
-//      assert(p.flightPath.size(),1);
-//      assertEquals(p.(*flightPath.begin()).pos.x, 123);
-//   } // teardown
+   void nonDefaultConstructor()
+   {    
+      // setup/exercise
+      Angle a;
+      a.radians= 0.6435;
+      double m = 5.0;
+      Position startPos;
+      startPos.x = 123;
+      startPos.y = 456;
+      //exercise
+      Projectile p(a,m,startPos);
+      // verify
+      assertEquals(a.radians, 0.6435);
+      assertEquals(m, 5.0);
+      assertEquals(startPos.x, 123);
+      assertEquals(startPos.y, 456);
+      assertEquals(p.mass, 46.7);
+      assertEquals(p.radius, 0.077545);
+      assertEquals(p.flightPath.size(),1);
+      
+      assertEquals(p.flightPath.front().pos.x, 123);
+      assertEquals(p.flightPath.front().pos.y, 456);
+      
+      assertEquals(p.flightPath.front().v.dx, 3);
+      assertEquals(p.flightPath.front().v.dy, 4);
+      
+      assertEquals(p.flightPath.front().t, 1);
+      } // teardown
 
    // we chose not to use the reset function because it doesn't make since for our design.
    /*****************************************************************

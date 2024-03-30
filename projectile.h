@@ -34,14 +34,8 @@ public:
    friend ::TestHowitzer;
    // create a new projectile with the default settings
    Projectile() : mass(DEFAULT_PROJECTILE_WEIGHT), radius(DEFAULT_PROJECTILE_RADIUS) {}
-   Projectile(Angle angle, double muzzleVelocity, Position startPos) {
-       mass = DEFAULT_PROJECTILE_WEIGHT;
-       radius = DEFAULT_PROJECTILE_RADIUS;
-       Velocity v;
-       v.set(angle, muzzleVelocity);
-       PositionVelocityTime newPosVelocityTime = {startPos, v, 1};
-       flightPath.push_back(newPosVelocityTime);
-   }
+   Projectile(Angle angle, double muzzleVelocity, Position startPos);
+   
 
 
    // advance the round forward until the next unit of time
