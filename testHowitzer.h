@@ -520,8 +520,8 @@ private:
       assert(testLiveRounds.front().flightPath.front().pos.x == 111);
       assert(testLiveRounds.front().flightPath.front().pos.y == 222);
       
-      assert(testLiveRounds.front().flightPath.front().v.dx == 100);
-      assert(testLiveRounds.front().flightPath.front().v.dy == 0);
+      assertEquals(testLiveRounds.front().flightPath.front().v.dx, 100);
+      assertEquals(testLiveRounds.front().flightPath.front().v.dy, 0);
       
       assert(testLiveRounds.front().flightPath.front().t == 1);
    }  // teardown
