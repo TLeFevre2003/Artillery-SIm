@@ -39,7 +39,7 @@ public:
 
 
    // advance the round forward until the next unit of time
-   void advance(double simulationTime) {}
+   void advance(double simulationTime);
 
 
    

@@ -51,6 +51,7 @@ public:
       fire_right();
       fire_left();
       fire_up();
+      fire_two();
 
       report("Howitzer");
    }
@@ -603,5 +604,53 @@ private:
       assert(testLiveRounds.front().flightPath.front().t == 1);
    }  // teardown
    
+   /*********************************************
+    * name:    FIRE two straight up
+    * input:   angle=0  pos=(111,222) muzzleVelocity=100
+    * output:  flightPath={pos=111,222 v=0,100 t=1}
+    *********************************************/
+   void fire_two()
+   {
+      // setup
+      Howitzer h;
+      h.elevation.radians = 0;
+      h.position.x = 111;
+      h.position.y = 222;
+      h.muzzleVelocity = 100;
+
+      list<Projectile> testLiveRounds;
+      
+      // exercise
+      h.fire(testLiveRounds);
+      h.fire(testLiveRounds);
+      // verify
+      assertEquals(h.elevation.radians, 0);
+
+      assertEquals(100, h.muzzleVelocity);
+      assertEquals(111, h.position.x);
+      assertEquals(222, h.position.y);
+      
+      assertEquals(testLiveRounds.front().radius, 0.077545);
+      assertEquals(testLiveRounds.front().mass, 46.7);
+      
+      // Test projectile 1
+      assert(testLiveRounds.front().flightPath.front().pos.x == 111);
+      assert(testLiveRounds.front().flightPath.front().pos.y == 222);
+      
+      assertEquals(testLiveRounds.front().flightPath.front().v.dx, 0);
+      assertEquals(testLiveRounds.front().flightPath.front().v.dy, 100);
+      
+      assertEquals(testLiveRounds.front().radius, 0.077545);
+      assertEquals(testLiveRounds.front().mass, 46.7);
+      
+      // Test projectile 2
+      assert(testLiveRounds.back().flightPath.front().pos.x == 111);
+      assert(testLiveRounds.back().flightPath.front().pos.y == 222);
+      
+      assertEquals(testLiveRounds.back().flightPath.front().v.dx, 0);
+      assertEquals(testLiveRounds.back().flightPath.front().v.dy, 100);
+      
+      assert(testLiveRounds.back().flightPath.front().t == 1);
+   }  // teardown
    
 };

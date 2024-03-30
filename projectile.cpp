@@ -27,3 +27,7 @@ Projectile::Projectile(Angle angle, double muzzleVelocity, Position startPos) {
 }
 
 
+void Projectile::advance(double simulationTime)
+{
+   
+}

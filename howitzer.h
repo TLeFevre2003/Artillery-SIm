@@ -75,7 +75,9 @@ class Howitzer
       // fires a projectile
       void fire(list<Projectile> & liveRounds)
       {
+         // Create projectile
          Projectile newRound(elevation, muzzleVelocity, position);
+         // Push Projectile to liveRounds
          liveRounds.push_back(newRound);
       }
 
