@@ -35,7 +35,15 @@ public:
    friend ::TestHowitzer;
    // create a new projectile with the default settings
    Projectile() : mass(DEFAULT_PROJECTILE_WEIGHT), radius(DEFAULT_PROJECTILE_RADIUS) {}
-   Projectile(Angle angle, double muzzleVelocity) {}
+   Projectile(Angle angle, double muzzleVelocity, Position startPos) 
+   {
+      mass = DEFAULT_PROJECTILE_WEIGHT;
+      radius = DEFAULT_PROJECTILE_RADIUS;
+      Velocity v;
+      v.set(angle, muzzleVelocity);
+      PositionVelocityTime newPosVelocityTime = {startPos, v, 1 };
+      flightPath.push_back(newPosVelocityTime);
+   }
 
 
    // advance the round forward until the next unit of time
@@ -52,6 +60,7 @@ private:
    struct PositionVelocityTime
    {
       PositionVelocityTime() : pos(), v(), t(0.0) {}
+      PositionVelocityTime(Position p,Velocity v, double t) : pos(p) , v(v), t(t) {} // used chat GPT to figure this part out. 
       Position pos;
       Velocity v;
       double t;
