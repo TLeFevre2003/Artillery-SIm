@@ -11,6 +11,8 @@
 #define ROTATION_AMOUNT 0.05
 #define RAISE_AMOUNT 0.003
 
+#include <iostream>
+
 /*********************************************
  * SIMULATOR: DRAW
  * Draws the Howitzer and ground
@@ -22,6 +24,8 @@ void Simulator::draw(ogstream & gout) const
    for (auto it = liveRounds.begin(); it != liveRounds.end(); ++it)
    {
       it->draw(gout);
+      gout.setPosition(it->getPosition());
+      gout << it->getPosition().getMetersY() - ground.getElevationMeters(it->getPosition());
    }
 }
 
@@ -69,10 +73,12 @@ void Simulator::detectCollision()
       {
 
       }*/
-      if (it->getPos().getMetersY() <= ground.getElevationMeters(it->getPos()))
+      if (it->getPosition().getMetersY() - ground.getElevationMeters(it->getPosition()) <= 0.0)
       {
-         liveRounds.erase(it);
-         delete &it;
+         
+
+         // Erase it from the list and advance the iterator
+         it = liveRounds.erase(it);
       }
    }
 }

@@ -13,7 +13,7 @@
 #include "ground.h"
 #include "howitzer.h"
 #include "uiInteract.h"
-#define FRAME_TIME 1
+#define FRAME_TIME .5
 
 
  /*********************************************

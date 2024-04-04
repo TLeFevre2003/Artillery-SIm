@@ -417,54 +417,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "03803046-60D1-4D4D-9885-8F9DC439AB15"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "projectile.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "Projectile::draw(gout)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "03803046-60D1-4D4D-9885-8F9DC439AB15 - 6993efd6c8544966"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Projectile::draw(ogstream&amp;) const"
-                  moduleName = "Lab07"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tylerlefevre/Documents/School/Encapsulation%20Design/Artillery-SIm/projectile.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "216">
-               </Location>
-               <Location
-                  uuid = "03803046-60D1-4D4D-9885-8F9DC439AB15 - 6993efd6c8544947"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Projectile::draw(ogstream&amp;) const"
-                  moduleName = "Lab07"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tylerlefevre/Documents/School/Encapsulation%20Design/Artillery-SIm/projectile.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "112">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E90E57E0-BF42-428D-BF3B-C5A332CA8A7C"
             shouldBeEnabled = "No"
             ignoreCount = "0"

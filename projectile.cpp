@@ -84,5 +84,12 @@ void Projectile::draw(ogstream& gout) const
    // Found reverse iterators from https://www.includehelp.com/stl/iterate-a-list-in-reverse-order-example-of-list-rbegin-and-list-rend-functions.aspx
   // draws the projectile with the most recent being darker
    for(auto revit = flightPath.rbegin(); revit!=flightPath.rend(); revit++ )
+   {
+      // Return before it draws white projectiles
+      if ((age - (*revit).t) > 4)
+      {
+         return;
+      }
       gout.drawProjectile((*revit).pos, age - (*revit).t);
+   }
 }
