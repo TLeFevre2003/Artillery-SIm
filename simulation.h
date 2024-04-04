@@ -13,6 +13,7 @@
 #include "ground.h"
 #include "howitzer.h"
 #include "uiInteract.h"
+#define FRAME_TIME 1
 
 
  /*********************************************
@@ -32,6 +33,9 @@ public:
    }
 
    void handleInput(const Interface* pUI);
+
+   void updateProjectiles();
+   void incrementTime() { time += FRAME_TIME; howitzer.updateTimeSinceFired(FRAME_TIME); }
    
    // Draw everything
    void draw(ogstream & gout) const;

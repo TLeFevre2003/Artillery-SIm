@@ -80,6 +80,7 @@ class Howitzer
          // set time since fired to 0
          timeSinceLastFire = 0;
       }
+      void updateTimeSinceFired(double SimTimeInc) { timeSinceLastFire += SimTimeInc; }
    
    
 

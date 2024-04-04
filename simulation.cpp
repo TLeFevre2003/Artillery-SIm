@@ -52,3 +52,10 @@ void Simulator::handleInput(const Interface* pUI)
       howitzer.raise(-RAISE_AMOUNT);
    }
 }
+void Simulator::updateProjectiles()
+{
+   for (auto it = liveRounds.begin(); it != liveRounds.end(); ++it)
+   {
+      it->advance(time);
+   }
+}
