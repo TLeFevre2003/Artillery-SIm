@@ -12,6 +12,7 @@
 #include "projectile.h"
 #include "ground.h"
 #include "howitzer.h"
+#include "uiInteract.h"
 
 
  /*********************************************
@@ -24,18 +25,13 @@ class Simulator
 public:
    Simulator(const Position & posUpperRight) : ground(posUpperRight)
    {
+      time = 0;
       this->posUpperRight = posUpperRight;
       howitzer.generatePosition(posUpperRight);
       ground.reset(howitzer.getPosition());
-      howitzer.fire(liveRounds, 1);
-      liveRounds.back().advance(1.2);
-      liveRounds.back().advance(1.4);
-      liveRounds.back().advance(1.6);
-      liveRounds.back().advance(1.8);
-      liveRounds.back().advance(2.0);
-      liveRounds.back().advance(2.2);
-      liveRounds.back().advance(2.4);
    }
+
+   void handleInput(const Interface* pUI);
    
    // Draw everything
    void draw(ogstream & gout) const;
@@ -45,4 +41,5 @@ private:
    Position posUpperRight;
    Ground ground;
    Howitzer howitzer;
+   double time;
 };
