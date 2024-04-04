@@ -59,3 +59,20 @@ void Simulator::updateProjectiles()
       it->advance(time);
    }
 }
+
+void Simulator::detectCollision()
+{
+   for (auto it = liveRounds.begin(); it != liveRounds.end(); ++it)
+   {
+     /* if (it->getPos().getMetersY() <= ground.getTarget().getMetersY() &&
+         ground.getTarget().getMetersX() - 10 <= it->getPos().getMetersX() <= ground.getTarget().getMetersX() + 10)
+      {
+
+      }*/
+      if (it->getPos().getMetersY() <= ground.getElevationMeters(it->getPos()))
+      {
+         liveRounds.erase(it);
+         delete &it;
+      }
+   }
+}

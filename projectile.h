@@ -44,9 +44,7 @@ public:
    // Draws the projectile
    void draw(ogstream& gout) const;
 
-
-   
-
+   Position getPos() { return flightPath.back().pos; }
    
 
 private:

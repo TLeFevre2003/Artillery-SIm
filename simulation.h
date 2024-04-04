@@ -35,7 +35,10 @@ public:
    void handleInput(const Interface* pUI);
 
    void updateProjectiles();
+
    void incrementTime() { time += FRAME_TIME; howitzer.updateTimeSinceFired(FRAME_TIME); }
+
+   void detectCollision();
    
    // Draw everything
    void draw(ogstream & gout) const;
