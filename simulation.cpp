@@ -18,4 +18,5 @@ void Simulator::draw(ogstream & gout) const
    
    ground.draw(gout);
    howitzer.draw(gout);
+   liveRounds.back().draw(gout);
 }

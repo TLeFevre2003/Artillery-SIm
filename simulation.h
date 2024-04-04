@@ -27,6 +27,14 @@ public:
       this->posUpperRight = posUpperRight;
       howitzer.generatePosition(posUpperRight);
       ground.reset(howitzer.getPosition());
+      howitzer.fire(liveRounds, 1);
+      liveRounds.back().advance(2);
+      liveRounds.back().advance(3);
+      liveRounds.back().advance(4);
+      liveRounds.back().advance(5);
+      liveRounds.back().advance(6);
+      liveRounds.back().advance(7);
+      liveRounds.back().advance(8);
    }
    
    // Draw everything

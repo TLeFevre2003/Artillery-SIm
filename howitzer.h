@@ -37,14 +37,6 @@ class Howitzer
       // default constructor
       Howitzer() : muzzleVelocity(DEFAULT_MUZZLE_VELOCITY), elevation(45.0) {}
 
-      // draw
-      void draw(ogstream& gout, double flightTime) const
-      {
-         gout.drawHowitzer(position,
-            elevation.getRadians(),
-            flightTime);
-      }
-
       // where is the howitzer at right now?
       Position & getPosition() { return position; }
 
