@@ -74,12 +74,15 @@ void Projectile::advance(double simulationTime)
    flightPath.push_back(newPosVelocityTime);
 }
 
-
+/*********************************************
+ * PROJECTILE: DRAW
+ * DRAWS THE PROJECTILE AND ITS TAIL
+ *********************************************/
 void Projectile::draw(ogstream& gout) const
 {
    double age = flightPath.back().t;
-//   gout.drawProjectile(flightPath.back().pos, age - flightPath.back().t);
-   
+   // Found reverse iterators from https://www.includehelp.com/stl/iterate-a-list-in-reverse-order-example-of-list-rbegin-and-list-rend-functions.aspx
+  // draws the projectile with the most recent being darker
    for(auto revit = flightPath.rbegin(); revit!=flightPath.rend(); revit++ )
       gout.drawProjectile((*revit).pos, age - (*revit).t);
 }

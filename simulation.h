@@ -28,13 +28,13 @@ public:
       howitzer.generatePosition(posUpperRight);
       ground.reset(howitzer.getPosition());
       howitzer.fire(liveRounds, 1);
-      liveRounds.back().advance(2);
-      liveRounds.back().advance(3);
-      liveRounds.back().advance(4);
-      liveRounds.back().advance(5);
-      liveRounds.back().advance(6);
-      liveRounds.back().advance(7);
-      liveRounds.back().advance(8);
+      liveRounds.back().advance(1.2);
+      liveRounds.back().advance(1.4);
+      liveRounds.back().advance(1.6);
+      liveRounds.back().advance(1.8);
+      liveRounds.back().advance(2.0);
+      liveRounds.back().advance(2.2);
+      liveRounds.back().advance(2.4);
    }
    
    // Draw everything
