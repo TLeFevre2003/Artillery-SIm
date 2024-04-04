@@ -78,9 +78,9 @@ void Projectile::advance(double simulationTime)
 void Projectile::draw(ogstream& gout) const
 {
    double age = flightPath.back().t;
-   gout.drawProjectile(flightPath.back().pos, age - flightPath.back().t);
+//   gout.drawProjectile(flightPath.back().pos, age - flightPath.back().t);
    
-   for(revit=.rbegin(); revit!=num.rend(); revit++ )
-         cout<< *revit<<endl;
-   
+   for(auto revit = flightPath.rbegin(); revit!=flightPath.rend(); revit++ )
+      double tempAge = (*revit).t;
+//      gout.drawProjectile(flightPath.back().pos, age - revit->t);
 }
