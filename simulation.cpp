@@ -66,15 +66,17 @@ void Simulator::updateProjectiles()
 
 void Simulator::detectCollision()
 {
+   Position target = ground.getTarget();
    for (auto it = liveRounds.begin(); it != liveRounds.end(); ++it)
    {
-     /* if (it->getPos().getMetersY() <= ground.getTarget().getMetersY() &&
-         ground.getTarget().getMetersX() - 10 <= it->getPos().getMetersX() <= ground.getTarget().getMetersX() + 10)
+      Position projectilePos = it->getPosition();
+      
+      if (projectilePos.getMetersY() - ground.getElevationMeters(projectilePos) <= 0.0)
       {
-
-      }*/
-      if (it->getPosition().getMetersY() - ground.getElevationMeters(it->getPosition()) <= 0.0)
-      {
+         if (projectilePos.getMetersX() <= target.getMetersX() && projectilePos.getMetersX() >= target.getMetersX() - 100)
+         {
+            double test;
+         }
          
 
          // Erase it from the list and advance the iterator
