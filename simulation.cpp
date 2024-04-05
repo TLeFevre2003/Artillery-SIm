@@ -76,7 +76,7 @@ void Simulator::updateProjectiles()
 void Simulator::detectCollision()
 {
    Position target = ground.getTarget();
-   for (auto it = liveRounds.begin(); it != liveRounds.end(); ++it)
+   for (auto it = liveRounds.begin(); it != liveRounds.end();)
    {
       Position projectilePos = it->getPosition();
       
@@ -89,8 +89,11 @@ void Simulator::detectCollision()
          }
          
 
-         // Erase it from the list and advance the iterator
          it = liveRounds.erase(it);
+      }
+      else
+      {
+         it++;
       }
    }
 }
