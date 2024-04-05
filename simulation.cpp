@@ -73,7 +73,8 @@ void Simulator::detectCollision()
       
       if (projectilePos.getMetersY() - ground.getElevationMeters(projectilePos) <= 0.0)
       {
-         if (projectilePos.getMetersX() <= target.getMetersX() && projectilePos.getMetersX() >= target.getMetersX() - 300)
+         std::cout << projectilePos.getMetersX() << " " << target.getMetersX() << std::endl;
+         if (projectilePos.getMetersX() >= target.getMetersX()-250 && projectilePos.getMetersX() <= target.getMetersX()+250)
          {
             howitzer.generatePosition(posUpperRight);
             ground.reset(howitzer.getPosition());
