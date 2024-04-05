@@ -12,7 +12,8 @@
 #define RAISE_AMOUNT 0.003
 
 #include <iostream>
-
+#include <iomanip>       // for fixed and setprecision
+using namespace std;
 /*********************************************
  * SIMULATOR: DRAW
  * Draws the Howitzer and ground
@@ -23,10 +24,18 @@ void Simulator::draw(ogstream & gout) const
    howitzer.draw(gout);
    for (auto it = liveRounds.begin(); it != liveRounds.end(); ++it)
    {
+      Position projectilePos = it->getPosition();
       it->draw(gout);
-      gout.setPosition(it->getPosition());
-      gout << it->getPosition().getMetersY() - ground.getElevationMeters(it->getPosition());
+      gout.setPosition(projectilePos);
+      gout << "Altitude: " << projectilePos.getMetersY() << endl << "Speed: " << it->getVelocity().getSpeed() << endl
+      << "Distance: " << projectilePos.getMetersX() << endl << " Hangtime: " << it->getHangtime();
    }
+   gout <<  setprecision(3);
+   Position angleTxt(21000,19000);
+   gout.setPosition(angleTxt);
+   gout << " Howitzer Angle: "<< howitzer.getElevation().getDegrees();
+   
+   
 }
 
 void Simulator::handleInput(const Interface* pUI)
@@ -73,11 +82,10 @@ void Simulator::detectCollision()
       
       if (projectilePos.getMetersY() - ground.getElevationMeters(projectilePos) <= 0.0)
       {
-         std::cout << projectilePos.getMetersX() << " " << target.getMetersX() << std::endl;
          if (projectilePos.getMetersX() >= target.getMetersX()-250 && projectilePos.getMetersX() <= target.getMetersX()+250)
          {
-            howitzer.generatePosition(posUpperRight);
-            ground.reset(howitzer.getPosition());
+            reset();
+            return;
          }
          
 
@@ -85,4 +93,13 @@ void Simulator::detectCollision()
          it = liveRounds.erase(it);
       }
    }
+}
+
+void Simulator::reset()
+{
+   howitzer.generatePosition(posUpperRight);
+   ground.reset(howitzer.getPosition());
+   liveRounds.clear();
+   
+   
 }

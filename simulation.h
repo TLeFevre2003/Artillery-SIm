@@ -42,6 +42,8 @@ public:
    
    // Draw everything
    void draw(ogstream & gout) const;
+   
+   void reset();
 
 private:
    std::list<Projectile> liveRounds;

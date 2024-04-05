@@ -45,6 +45,8 @@ public:
    void draw(ogstream& gout) const;
 
    Position getPosition() const { return flightPath.back().pos; }
+   Velocity getVelocity() const { return flightPath.back().v; }
+   double getHangtime() const { return flightPath.back().t;}
    
 
 private:
