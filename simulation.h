@@ -26,7 +26,7 @@ class Simulator
 public:
    Simulator(const Position & posUpperRight) : ground(posUpperRight)
    {
-      time = 0;
+      simTime = 0;
       this->posUpperRight = posUpperRight;
       howitzer.generatePosition(posUpperRight);
       ground.reset(howitzer.getPosition());
@@ -36,7 +36,7 @@ public:
 
    void updateProjectiles();
 
-   void incrementTime() { time += FRAME_TIME; howitzer.updateTimeSinceFired(FRAME_TIME); }
+   void incrementTime() { simTime += FRAME_TIME; howitzer.updateTimeSinceFired(FRAME_TIME); }
 
    void detectCollision();
    
@@ -50,5 +50,5 @@ private:
    Position posUpperRight;
    Ground ground;
    Howitzer howitzer;
-   double time;
+   double simTime;
 };

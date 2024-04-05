@@ -42,7 +42,7 @@ void Simulator::handleInput(const Interface* pUI)
 {
    if (pUI->isSpace())
    {
-      howitzer.fire(liveRounds,time);
+      howitzer.fire(liveRounds,simTime);
    }
    
    if (pUI->isRight())
@@ -69,7 +69,7 @@ void Simulator::updateProjectiles()
 {
    for (auto it = liveRounds.begin(); it != liveRounds.end(); ++it)
    {
-      it->advance(time);
+      it->advance(simTime);
    }
 }
 
