@@ -67,10 +67,11 @@ Position Ground::getTarget() const
 
 /************************************************************************
  * GROUND :: RESET
- * Note that the howitzer's Y position will be updated when the ground is 
+ * Create a new ground
+ * Note that the howitzer's Y position will be updated when the ground is
  * reset because only then can we know its elevation. posHowitzer is by-reference
  * and not const-by-reference for this purpose.
- *************************************************************************/
+ ************************************************************************/
  void Ground :: reset(Position & posHowitzer)
  {
    // remember the integer width for later. It will come in handy
@@ -102,7 +103,7 @@ Position Ground::getTarget() const
          ground[i] = ground[i - 1];
       }
       else
-      { 
+      {
          // what percentage of the elevation were we at?
          double percent = (ground[i - 1] - posMinimum.getPixelsY()) /
                           (posMaximum.getPixelsY() - posMinimum.getPixelsY());
@@ -117,6 +118,8 @@ Position Ground::getTarget() const
 
          // determine the elevation according to the slope
          ground[i] = ground[i - 1] + dy + random(-TEXTURE, TEXTURE);
+         if (ground[i] < 0.0)
+            ground[i] = 0.0;
          assert(ground[i] >= 0.0 && ground[i] <= posUpperRight.getPixelsY());
       }
    }
