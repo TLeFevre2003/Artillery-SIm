@@ -8,12 +8,13 @@
  ************************************************************************/
 
 #include "simulation.h"  // for SIMULATION
-#define ROTATION_AMOUNT 0.05
-#define RAISE_AMOUNT 0.003
-#include <cmath>// For absolute value
-#include <iostream>
+#include <cmath>         // For absolute value
 #include <iomanip>       // for fixed and setprecision
 using namespace std;
+
+#define ROTATION_AMOUNT 0.05
+#define RAISE_AMOUNT 0.003
+
 /*********************************************
  * SIMULATOR: DRAW
  * Draws the Howitzer and ground
@@ -36,7 +37,7 @@ void Simulator::draw(ogstream & gout) const
    }
    
    // Display the angle of the Howitzer
-   gout << std::fixed << std::setprecision(1); // Set precision for the angle text
+   gout << fixed << setprecision(1); // Set precision for the angle text
    Position angleTxt(17500,19000);
    gout.setPosition(angleTxt);
    gout << " Howitzer Angle: "<< howitzer.getElevation().getDegrees() << " Degrees";

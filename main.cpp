@@ -28,11 +28,20 @@ void callBack(const Interface* pUI, void* p)
    // the first step is to cast the void pointer into a simulator object. This
    // is the first step of every single callback function in OpenGL. 
    Simulator* pSim = (Simulator*)p;
+   
+   // Check for user input
    pSim->handleInput(pUI);
+   
+   // Increment time in the simulation
    pSim->incrementTime();
+   
+   // Update the positions for all projectiles
    pSim->updateProjectiles();
+   
+   // Check for projectile collisions
    pSim->detectCollision();
 
+   // Draw all things to the screen
    ogstream gout;
    pSim->draw(gout);
 }
