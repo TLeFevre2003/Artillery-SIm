@@ -2,7 +2,7 @@
  * Header File:
  *    TEST HOWITZER
  * Author:
- *    <your name here>
+ *    Tyler LeFevre and Jason Chandler
  * Summary:
  *    All the unit tests for Howitzer
  ************************************************************************/

@@ -2,7 +2,7 @@
  * Header File:
  *    SIMULATION
  * Author:
- *    <your name here>
+ *   Tyler LeFevre and Jason Chandler
  * Summary:
  *    Execute one simulation of a projectile being fired.
  ************************************************************************/
@@ -26,23 +26,26 @@ class Simulator
 public:
    Simulator(const Position & posUpperRight) : ground(posUpperRight)
    {
-      simTime = 0;
       this->posUpperRight = posUpperRight;
-      howitzer.generatePosition(posUpperRight);
-      ground.reset(howitzer.getPosition());
+      reset();
    }
 
+   // Reacts to the user input
    void handleInput(const Interface* pUI);
 
+   // Updates the position of all projectiles
    void updateProjectiles();
 
+   // Increments the time of the simulation
    void incrementTime() { simTime += FRAME_TIME; howitzer.updateTimeSinceFired(FRAME_TIME); }
 
+   // Detects collisions
    void detectCollision();
    
    // Draw everything
    void draw(ogstream & gout) const;
    
+   // Resets the simulation
    void reset();
 
 private:

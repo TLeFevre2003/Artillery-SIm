@@ -2,7 +2,7 @@
  * Header File:
  *    HOWITZER
  * Author:
- *    <your name here>
+ *   Tyler LeFevre and Jason Chandler
  * Summary:
  *    Everything we need to know about a howitzer (aka the gun)
  ************************************************************************/
@@ -38,7 +38,10 @@ class Howitzer
       Howitzer() : muzzleVelocity(DEFAULT_MUZZLE_VELOCITY), elevation(45.0) {}
 
       // where is the howitzer at right now?
-      Position & getPosition() { return position; }
+      Position & getMutablePosition() { return position; }
+   
+      // where is the howitzer at right now?
+      const Position & getPosition() const { return position; }
 
       // generate a new position for the howitzer
       void generatePosition(const Position& posUpperRight)

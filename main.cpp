@@ -2,11 +2,10 @@
  * Source File:
  *    Lab 12: M777 Howitzer
  * Author:
- *    <your name here>
+ *    Tyler LeFevre and Jason Chandler
  * Summary:
  *    Simulate firing the M777 howitzer 15mm artillery piece
  ************************************************************************/
-#pragma once
 #include <cassert>      // for ASSERT
 #include "uiInteract.h" // for INTERFACE
 #include "uiDraw.h"     // for RANDOM and DRAW*

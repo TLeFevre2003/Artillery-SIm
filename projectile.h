@@ -2,7 +2,7 @@
  * Header File:
  *    PROJECTILE
  * Author:
- *    <your name here>
+ *   Tyler LeFevre and Jason Chandler
  * Summary:
  *    Everything we need to know about a projectile
  ************************************************************************/
